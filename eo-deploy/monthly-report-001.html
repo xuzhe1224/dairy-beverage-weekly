@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乳制品 & 饮料行业市场动态周报 — 2026年6月第1周（详尽版）</title>
+<style>
+  /* ========== 全局样式 ========== */
+  :root {
+    --primary: #0D6EAA;
+    --primary-light: #E8F4FD;
+    --primary-dark: #085a8c;
+    --accent: #FF6B35;
+    --accent-light: #FFF0EB;
+    --success: #2ECC71;
+    --warning: #F39C12;
+    --danger: #E74C3C;
+    --text-dark: #1A2332;
+    --text-medium: #555F6D;
+    --text-light: #8892A0;
+    --bg-body: #F5F7FA;
+    --bg-card: #FFFFFF;
+    --border: #E2E8F0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ========== 封面区域 ========== */
+  .hero {
+    background: linear-gradient(135deg, #0D6EAA 0%, #085a8c 40%, #1a365d 100%);
+    color: white;
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .hero h1 span { color: #7DD3FC; }
+  .hero h2 {
+    font-size: 22px;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+  }
+  .hero-meta-item svg { width: 18px; height: 18px; opacity: 0.8; }
+
+  /* ========== 导航目录 ========== */
+  .toc-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .toc-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .toc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    white-space: nowrap;
+  }
+  .toc-btn:hover { background: var(--primary-light); color: var(--primary); }
+  .toc-btn.active {
+    background: var(--primary);
+    color: white;
+  }
+  .toc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .toc-btn.active .toc-num { background: rgba(255,255,255,0.3); }
+
+  /* ========== 主容器 ========== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ========== 章节标题 ========== */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 28px;
+    scroll-margin-top: 70px;
+  }
+  .section-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .section-title-group { flex: 1; }
+  .section-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+  .section-line {
+    height: 3px;
+    border-radius: 2px;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  /* 子章节标题 */
+  .subsection {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 28px 0 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--primary);
+  }
+  .subsubsection {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 20px 0 12px;
+  }
+
+  /* ========== 卡片组件 ========== */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* 产品卡片 */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 18px;
+    margin: 16px 0;
+  }
+  .product-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 20px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--primary);
+    border-radius: 4px 0 0 4px;
+  }
+  .product-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--primary);
+  }
+  .product-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .product-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    vertical-align: middle;
+  }
+  .product-tag.new { background: #FEF3C7; color: #B45309; }
+  .product-tag.hot { background: #FEE2E2; color: #DC2626; }
+  .product-tag.tech { background: #DBEAFE; color: #1D4ED8; }
+  .product-desc {
+    font-size: 13.5px;
+    color: var(--text-medium);
+    line-height: 1.75;
+  }
+  .product-desc strong { color: var(--text-dark); }
+  .product-desc br { display: block; margin: 4px 0; }
+
+  /* ========== 高亮框 ========== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary-light), #f0f7ff);
+    border: 1px solid #b8d4ed;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0;
+    position: relative;
+  }
+  .highlight-box::before {
+    content: '💡';
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--accent);
+    color: white;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .highlight-box strong {
+    color: var(--primary-dark);
+    font-size: 15px;
+  }
+  .highlight-box p { margin-top: 8px; }
+
+  /* 洞察框 */
+  .insight-box {
+    background: linear-gradient(135deg, #FFF7ED, #ffedd5);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .insight-box strong { color: #C2410C; font-size: 15px; }
+
+  /* 警告框 */
+  .warning-box {
+    background: linear-gradient(135deg, #FEF2F2, #fee2e2);
+    border-left: 4px solid var(--danger);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+  .warning-box strong { color: var(--danger); }
+
+  /* ========== 数据指标卡（横向排列） ========== */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .metric-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .metric-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .metric-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+  }
+  .metric-value.accent { color: var(--accent); }
+  .metric-value.success { color: var(--success); }
+  .metric-value.warning { color: var(--warning); }
+  .metric-label {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 6px;
+  }
+  .metric-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 6px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .metric-trend.up { background: #DCFCE7; color: #15803d; }
+  .metric-trend.down { background: #FEE2E2; color: #dc2626; }
+
+  /* ========== 表格样式 ========== */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+  thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+  tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-medium);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #FAFBFD; }
+  tbody tr td:first-child { font-weight: 600; color: var(--text-dark); }
+
+  /* ========== 图表容器 ========== */
+  .chart-container {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .chart-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chart-title svg { width: 20px; height: 20px; color: var(--primary); }
+  .chart-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    border-radius: var(--radius-sm);
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* 内联图表（SVG）*/
+  .inline-chart { width: 100%; max-width: 100%; }
+
+  /* ========== 时间线 ========== */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px; top: 22px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid var(--primary-light);
+  }
+  .timeline-date {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .timeline-desc {
+    font-size: 13.5px;
+    color: var(--text-medium);
+    margin-top: 6px;
+  }
+
+  /* ========== 标签组 ========== */
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background: #F1F5F9;
+    color: var(--text-medium);
+    border: 1px solid var(--border);
+  }
+  .tag.primary { background: var(--primary-light); color: var(--primary); border-color: #bfdbfe; }
+  .tag.accent { background: var(--accent-light); color: var(--accent); border-color: #fecaca; }
+  .tag.success { background: #ECFDF5; color: #059669; border-color: #a7f3d0; }
+
+  /* ========== 列表样式 ========== */
+  ul.content-list, ol.content-list {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+  ul.content-list li, ol.content-list li {
+    margin: 8px 0;
+    font-size: 14.5px;
+    color: var(--text-medium);
+    line-height: 1.7;
+  }
+  ul.content-list li strong, ol.content-list li strong { color: var(--text-dark); }
+  ul.content-list li::marker { color: var(--primary); }
+
+  /* ========== 竞品对比矩阵 ========== */
+  .brand-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .brand-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.25s;
+  }
+  .brand-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .brand-logo {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin: 0 auto 12px;
+  }
+  .brand-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-dark);
+  }
+  .brand-products {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 8px;
+  }
+
+  /* ========== 价格带对比 ========== */
+  .price-bands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media (max-width: 768px) {
+    .price-bands { grid-template-columns: 1fr; }
+  }
+  .price-band {
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .price-band:hover { transform: translateY(-3px); }
+  .price-band.budget { background: linear-gradient(135deg, #ECFDF5, #d1fae5); border-color: #6ee7b7; }
+  .price-band.mid { background: linear-gradient(135deg, #EFF6FF, #dbeafe); border-color: #93c5fd; }
+  .price-band.premium { background: linear-gradient(135deg, #FEF3C7, #fde68a); border-color: #fcd34d; }
+  .price-label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .price-amount {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .price-band.budget .price-amount { color: #059669; }
+  .price-band.mid .price-amount { color: #2563eb; }
+  .price-band.premium .price-amount { color: #d97706; }
+  .price-detail {
+    font-size: 13px;
+    color: var(--text-medium);
+    margin-top: 8px;
+  }
+
+  /* ========== 场景矩阵 ========== */
+  .scene-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .scene-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .scene-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+  }
+  .scene-icon { font-size: 28px; margin-bottom: 8px; }
+  .scene-name { font-weight: 700; font-size: 14px; color: var(--text-dark); }
+  .scene-product { font-size: 12.5px; color: var(--primary); margin-top: 4px; }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.65);
+    padding: 40px 24px;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .footer a { color: #7DD3FC; text-decoration: none; }
+  .footer-disclaimer {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 16px;
+    background: rgba(255,255,255,0.06);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 28px; }
+    .hero h2 { font-size: 16px; }
+    .container { padding: 24px 16px; }
+    .section-title { font-size: 21px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: 1fr 1fr; }
+    .price-bands { grid-template-columns: 1fr; }
+  }
+
+  /* ========== 动画 ========== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in { animation: fadeInUp 0.5s ease forwards; }
+
+  /* ========== Tab切换组件 ========== */
+  .tab-container { margin: 20px 0; }
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    background: #F1F5F9;
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    flex: 1;
+    min-width: fit-content;
+    padding: 10px 18px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tab-btn.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeInUp 0.3s; }
+
+  /* ========== 进度条 ========== */
+  .progress-bar {
+    background: #E2E8F0;
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--primary), #38bdf8);
+    transition: width 0.8s ease;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 封面 ==================== -->
+<div class="hero">
+  <div class="hero-badge">WEEKLY REPORT · 第 1 周</div>
+  <h1>乳制品 <span>&</span> 饮料行业<br>市场动态周报</h1>
+  <h2>2026 年 6 月第 1 周（6月1日—6月7日）· 详尽版</h2>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      2026.06.01 — 06.07
+    </div>
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      6 大板块 · 15+ 细分维度
+    </div>
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+      数据驱动 · 供产品规划参考
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 导航栏 ==================== -->
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <a href="#sec-market" class="toc-btn active"><span class="toc-num">1</span> 市场动态</a>
+    <a href="#sec-trend" class="toc-btn"><span class="toc-num">2</span> 消费趋势</a>
+    <a href="#sec-policy" class="toc-btn"><span class="toc-num">3</span> 政策监管</a>
+    <a href="#sec-tech" class="toc-btn"><span class="toc-num">4</span> 技术创新</a>
+    <a href="#sec-compete" class="toc-btn"><span class="toc-num">5</span> 竞品动态</a>
+    <a href="#sec-data" class="toc-btn"><span class="toc-num">6</span> 数据洞察</a>
+    <a href="#sec-insight" class="toc-btn"><span class="toc-num">✦</span> 产品启示</a>
+  </div>
+</nav>
+
+<!-- ==================== 主内容区 ==================== -->
+<div class="container">
+
+<!-- ============ 第一章：市场动态 ============ -->
+<section id="sec-market">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#3B82F6,#2563EB);">
+      📈
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">一、市场动态</h2>
+      <p class="section-subtitle">新品发布 / 融资并购 / 产能布局 / 赛道格局变化</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #3B82F6, #2563EB);"></div>
+  </div>
+
+  <!-- 关键数据概览 -->
+  <div class="metrics-row">
+    <div class="metric-card">
+      <div class="metric-value">10+</div>
+      <div class="metric-label">伊利2026新品数量</div>
+      <div class="metric-trend up">↑ 新品矩阵全面铺开</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value accent">15+</div>
+      <div class="metric-label">电解质水入场品牌数</div>
+      <div class="metric-trend up">↑ "众神之战"</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value success">+118%</div>
+      <div class="metric-label">东鹏补水啦增速</div>
+      <div class="metric-trend up">↑ 32.74亿营收</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value warning">¥3~4</div>
+      <div class="metric-label">电解质水主价格带</div>
+      <div class="metric-trend down">价格战激烈</div>
+    </div>
+  </div>
+
+  <!-- 1.1 伊利新品矩阵 -->
+  <h3 class="subsection">1.1 伊利发布 2026 年 10+ 款新品矩阵</h3>
+
+  <div class="card">
+    <p style="font-size:15px;color:var(--text-medium);line-height:1.8;">
+      2025 年 12 月 17 日，<strong>伊利经销商大会在珠海举行</strong>，现场首次公布了 2026 年液态奶新品矩阵，
+      十余款新品横跨纯牛奶、酸奶、儿童奶、乳基饮品、植物奶等核心品类。
+      本次新品并未采用单一概念拉齐所有产品，而是从<strong>技术升级、趣味体验、场景定制</strong>三个维度推进。
+    </p>
+  </div>
+
+  <div class="highlight-box">
+    <strong>核心策略解读：</strong><br>
+    <p style="margin-top:8px;font-size:14.5px;color:var(--text-medium);line-height:1.8;">
+      🏗️ <strong>高端线</strong> → 通过技术升级夯实品质价值，打破品类固有认知<br>
+      🎨 <strong>大众线</strong> → 通过趣味化设计强化体验差异，降低同质化竞争<br>
+      🎯 <strong>全产品线</strong> → 均指向具体人群与具体使用场景，覆盖从基础饮用到高端礼赠、儿童成长到职场代餐的全场景需求
+    </p>
+  </div>
+
+  <!-- Tab 切换：按系列查看 -->
+  <div class="tab-container">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(event,'tab-quality')">🥛 品质鲜奶</button>
+      <button class="tab-btn" onclick="switchTab(event,'tab-fun')">🍋 趣味体验</button>
+      <button class="tab-btn" onclick="switchTab(event,'tab-scene')">🎯 场景定制</button>
+    </div>
+    <div id="tab-quality" class="tab-panel active">
+      <h4 class="subsubsection">品质鲜奶系列 — 以技术重塑常温奶价值边界</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">金典鲜活纯牛奶 <span class="product-tag tech">核心技术</span></div>
+          <div class="product-desc">
+            <strong>奶源：</strong>GAP 一级认证奶源<br>
+            <strong>工艺：</strong>INF 0.09秒超瞬时杀菌 + 降氧锁鲜 + RO膜过滤三重工艺<br>
+            <strong>卖点：</strong>主打"不冰也好喝，常温也新鲜"，缩小常温奶与低温奶的风味差距<br>
+            <strong>策略：</strong>瞄准消费者对"新鲜口感"的升级需求，打破"新鲜=低温"的固有认知
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">伊利基础纯牛奶（十年升级款）<span class="product-tag new">升级款</span></div>
+          <div class="product-desc">
+            <strong>升级点：</strong>乳蛋白含量提升至 3.3g/100mL，奶源标准优于欧盟标准<br>
+            <strong>目标：</strong>覆盖大众日常基础营养需求，适配全年龄段、全场景的基础饮用需求
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">臻浓特浓牛奶</div>
+          <div class="product-desc">
+            <strong>定位：</strong>追求浓郁口感的大众消费群体<br>
+            <strong>卖点：</strong>从<strong>奶香浓</strong>、<strong>口感浓</strong>、<strong>营养浓</strong>三个维度强化风味体验
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tab-fun" class="tab-panel">
+      <h4 class="subsubsection">趣味体验系列 — 从功能型饮品到体验型零食</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">安慕希益生菌爆珠系列<span class="product-tag hot">爆品</span></div>
+          <div class="product-desc">
+            <strong>口味：</strong>绿色果蔬味、红心苹果味<br>
+            <strong>创新：</strong>BC99活性益生菌爆珠 + 真实果粒，多层嚼感结构<br>
+            <strong>策略：</strong>将酸奶从"功能型饮品"升级为可感知、可分享的体验型零食
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">优酸乳嚼柠檬（红心苹果版）<span class="product-tag new">新口味</span></div>
+          <div class="product-desc">
+            <strong>卖点：</strong>稀缺果种 + 柠檬复合风味；全线升级 NFC 果汁，不浓缩不兑水；真实果皮果肉含量远超行业平均水平<br>
+            <strong>策略：</strong>精准匹配 Z 世代对"趣味化、可玩性"的饮食偏好
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">伊利草原酸奶（沙棘/沙果口味）</div>
+          <div class="product-desc">
+            <strong>特色原料：</strong>和林格尔沙棘 + 内蒙沙果，自研草原菌种<br>
+            <strong>卖点：</strong>6-9小时慢发酵，pH值温和，适配肠胃<br>
+            <strong>策略：</strong>地域特色原料打造差异化风味壁垒
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tab-scene" class="tab-panel">
+      <h4 class="subsubsection">场景定制系列 — 精准匹配细分场景</h4>
+      <div class="scene-matrix">
+        <div class="scene-card"><div class="scene-icon">🎁</div><div class="scene-name">礼赠场景</div><div class="scene-product">伊利×正官庄红参红石榴牛奶</div></div>
+        <div class="scene-card"><div class="scene-icon">🧒</div><div class="scene-name">儿童成长</div><div class="scene-product">QQ星A2β-酪蛋白原生DHA牛奶</div></div>
+        <div class="scene-card"><div class="scene-icon">💼</div><div class="scene-name">职场代餐</div><div class="scene-product">谷粒多奇亚籽燕麦奶昔</div></div>
+        <div class="scene-card"><div class="scene-icon">🌿</div><div class="scene-name">植物早餐</div><div class="scene-product">植选全豆研磨自立袋豆奶</div></div>
+        <div class="scene-card"><div class="scene-icon">🌸</div><div class="scene-name">时令饮茶</div><div class="scene-product">伊刻活泉现泡茶（玫瑰红茶/樱花玉露）</div></div>
+        <div class="scene-card"><div class="scene-icon">📦</div><div class="scene-name">大众礼赠</div><div class="scene-product">谷粒多生牛乳6种坚果</div></div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <table>
+          <thead><tr><th>场景</th><th>产品</th><th>核心差异化</th><th>目标人群</th></tr></thead>
+          <tbody>
+            <tr><td>礼赠</td><td>伊利×正官庄红参红石榴</td><td>乳品+滋补类原料组合</td><td>节日送礼人群</td></tr>
+            <tr><td>儿童</td><td>QQ星A2β+DHA纯牛奶</td><td>A2基因筛选奶牛 + 原生DHA</td><td>3-12岁儿童</td></tr>
+            <tr><td>代餐</td><td>谷粒多奇亚籽燕麦奶昔</td><td>4500mg膳食纤维 + 低GI</td><td>职场加班族</td></tr>
+            <tr><td>早餐</td><td>植选全豆研磨自立袋豆奶</td><td>全豆研磨 + 可加热自立袋</td><td>早餐便捷人群</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.2 电解质水赛道 -->
+  <h3 class="subsection">1.2 电解质水赛道进入"众神之战"</h3>
+
+  <div class="warning-box">
+    <strong>⚡ 核心判断：</strong>中国饮料市场竞争焦点已从纯净水/矿泉水全面转向电解质水细分赛道。
+    开年仅四个月，已有超过 <strong>15 家大品牌加码</strong>该领域。市场正处于从"新消费品牌创新圈地"
+    向全行业"巷战洗牌"的转折点。<strong>尚未出现市场份额超 20% 的绝对龙头品牌。</strong>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">🔥 电解质水主要玩家格局一览</div>
+    <div class="brand-matrix">
+      <div class="brand-card">
+        <div class="brand-logo" style="background:linear-gradient(135deg,#10B981,#059669)">元</div>
+        <div class="brand-name">元气森林</div>
+        <div class="brand-products">外星人超能水 · 倍燃版 · GO!含气版<br><span style="color:#059669;font-weight:600;">3元起 | 功能水定位</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo" style="background:linear-gradient(135deg,#0EA5E9,#0369a1)">农</div>
+        <div class="brand-name">农夫山泉</div>
+        <div class="brand-products">电解质水新品（独立于尖叫）<br><span style="color:#0369a1;font-weight:600;">¥3.67 | 200万+终端</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo" style="background:linear-gradient(135deg,#F59E0B,#D97706)">东</div>
+        <div class="brand-name">东鹏饮料</div>
+        <div class="brand-products">补水啦<br><span style="color:#D97706;font-weight:600;">~¥2.14 | +118.99%增速</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo" style="background:linear-gradient(135deg,#EF4444,#DC2626)">可</div>
+        <div class="brand-name">可口可乐</div>
+        <div class="brand-products">POWERADE 爆锐<br><span style="color:#DC2626;font-weight:600;">山姆首发 | 国际品牌</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 价格带对比 -->
+  <h4 class="subsubsection">价格策略分化</h4>
+  <div class="price-bands">
+    <div class="price-band budget">
+      <div class="price-label">大众/下沉市场</div>
+      <div class="price-amount">≤ ¥3</div>
+      <div class="price-detail">
+        代表：<strong>外星人超能水（3元）</strong>、东鹏补水啦（~2.14元）<br>
+        策略：极致性价比抢夺替水场景
+      </div>
+    </div>
+    <div class="price-band mid">
+      <div class="price-label">主流中间地带</div>
+      <div class="price-amount">¥3~4</div>
+      <div class="price-detail">
+        代表：<strong>农夫山泉新品（3.67元）</strong>、外星人常规版（~3.8元）<br>
+        策略：精准卡位，渠道促销压单价
+      </div>
+    </div>
+    <div class="price-band premium">
+      <div class="price-label">高端/专业渠道</div>
+      <div class="price-amount">≥ ¥4</div>
+      <div class="price-detail">
+        代表：<strong>POWERADE爆锐</strong>（山姆渠道）、含气电解质饮料<br>
+        策略：专业功能或特定渠道溢价
+      </div>
+    </div>
+  </div>
+
+  <!-- 其他入场品牌 -->
+  <h4 class="subsubsection">其他入场品牌</h4>
+  <div class="tag-group">
+    <span class="tag primary">蒙牛 — 乳钙电解质水</span>
+    <span class="tag primary">达能 — 全球研发优势</span>
+    <span class="tag accent">王老吉 — 本草概念跨界</span>
+    <span class="tag accent">好望水 — 人参枸杞中式养生</span>
+    <span class="tag success">菲诺 — 椰子水熬夜恢复</span>
+    <span class="tag success">李子园 — 乳饮料延伸</span>
+  </div>
+</section>
+
+
+<!-- ============ 第二章：消费趋势 ============ -->
+<section id="sec-trend">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#F59E0B,#D97706);">
+      🔥
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">二、消费趋势</h2>
+      <p class="section-subtitle">健康化 / 场景化 / 个性化 / 国潮化 / 渠道变革</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #F59E0B, #D97706);"></div>
+  </div>
+
+  <h3 class="subsection">2.1 健康化：从"低糖"到"清洁标签"</h3>
+
+  <div class="card">
+    <p style="font-size:14.5px;color:var(--text-medium);line-height:1.8;">
+      益普索 2026 年中国食品饮料趋势报告指出，行业正呈现场景深化、技术突破、理性回归三大核心走向。
+      消费需求从泛化粗放转向精准细分。
+    </p>
+  </div>
+
+  <!-- 消费者痛点 -->
+  <h4 class="subsubsection">消费者核心痛点 TOP3</h4>
+  <div class="metrics-row">
+    <div class="metric-card">
+      <div class="metric-value accent">33.4%</div>
+      <div class="metric-label">健康与口感难以兼顾</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value warning">33.0%</div>
+      <div class="metric-label">特定人群选择太少</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="color:var(--text-medium)">32.5%</div>
+      <div class="metric-label">同质化严重无创新</div>
+    </div>
+  </div>
+
+  <!-- 无糖低糖 -->
+  <h4 class="subsubsection">无糖低糖成为标配</h4>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-name">天然代糖普及</div>
+      <div class="product-desc">
+        赤藓糖醇、甜菊糖苷等天然代糖替代阿斯巴甜等人工代糖，配料表更清洁
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">配料表"减法"</div>
+      <div class="product-desc">
+        追求低糖、低卡、0香精，回归水的本源，配料表越短越好
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">市场规模增长</div>
+      <div class="product-desc">
+        无糖饮料：<strong>2025年 615.6亿元 → 2028年 815.6亿元</strong>，持续放量
+      </div>
+    </div>
+  </div>
+
+  <!-- 功能成分深化 -->
+  <h4 class="subsubsection">功能成分深化方向</h4>
+  <div class="tag-group">
+    <span class="tag primary">益生菌 → 复合菌株（5株专利益生菌配方）</span>
+    <span class="tag primary">电解质 → 日常"水替"+ 燃脂支持场景延伸</span>
+    <span class="tag accent">HMO → 从婴幼儿奶粉向儿童奶粉延伸</span>
+    <span class="tag accent">药食同源 → 人参/枸杞/桑叶/苦瓜入饮配方</span>
+    <span class="tag success">乳钙 → 运动补钙差异化切入</span>
+  </div>
+
+  <h3 class="subsection">2.2 场景化：从"大单品"到"场景专属"</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>场景</th><th>代表产品</th><th>核心卖点</th><th>目标人群</th></tr></thead>
+      <tbody>
+        <tr><td>🎁 礼赠</td><td>伊利×正官庄红参红石榴</td><td>健康属性 + 包装升级</td><td>节日送礼</td></tr>
+        <tr><td>🥪 代餐</td><td>谷粒多奇亚籽燕麦奶昔</td><td>高纤 + 低GI + 饱腹</td><td>职场白领</td></tr>
+        <tr><td>👶 儿童</td><td>QQ星 A2β+DHA</td><td>IP联名 + 营养强化</td><td>3-12岁儿童</td></tr>
+        <tr><td>👴 中老年</td><td>悠瑞骨力配方奶粉</td><td>骨骼+关节+肌肉全方位</td><td>中老年群体</td></tr>
+        <tr><td>💼 职场</td><td>优益C复合益生菌</td><td>肠道健康 + 0蔗糖0脂肪</td><td>办公室人群</td></tr>
+        <tr><td>🏃 运动</td><td>迈胜液体蛋白PRO</td><td>25g蛋白质 + BCAA</td><td>健身人群</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection">2.3 国潮化：东方美学与传统食材融合</h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-name">每日鲜酪 桂花马蹄酪</div>
+      <div class="product-desc">
+        <strong>工艺：</strong>33道法式鲜酪工艺<br>
+        <strong>风味：</strong>金桂花 + 马蹄的中式风味碰撞<br>
+        <strong>契合：</strong>国潮消费趋势，传统食材现代表达
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">伊刻活泉 现泡茶</div>
+      <div class="product-desc">
+        <strong>玫瑰红茶：</strong>云南滇红 + 100%手工采摘重瓣红玫瑰<br>
+        <strong>樱花玉露：</strong>恩施玉露绿茶 + 手工采摘樱花（春季限定）
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">酸酸乳 乳酸菌果茶</div>
+      <div class="product-desc">
+        <strong>配方：</strong>瑞士乳杆菌 + 云南滇红茶<br>
+        <strong>融合：</strong>茶香 + 果香 + 乳香三重层次
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection">2.4 渠道变革：数字化主导品牌认知</h3>
+  <div class="chart-container">
+    <div class="chart-title">📊 消费者品牌认知渠道分布</div>
+    <svg class="inline-chart" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Bar Chart -->
+      <text x="300" y="20" text-anchor="middle" fill="#1A2332" font-size="14" font-weight="700">消费者品牌认知渠道占比 (%)</text>
+      <!-- Y轴 labels -->
+      <text x="45" y="245" text-anchor="end" fill="#888" font-size="11">0%</text>
+      <text x="45" y="195" text-anchor="end" fill="#888" font-size="11">25%</text>
+      <text x="45" y="145" text-anchor="end" fill="#888" font-size="11">50%</text>
+      <!-- Grid lines -->
+      <line x1="52" y1="240" x2="580" y2="240" stroke="#E2E8F0"/>
+      <line x1="52" y1="190" x2="580" y2="190" stroke="#E2E8F0" stroke-dasharray="4"/>
+      <line x1="52" y1="140" x2="580" y2="140" stroke="#E2E8F0" stroke-dasharray="4"/>
+      <!-- Bars -->
+      <rect x="72" y="78" width="70" height="162" rx="6" fill="#3B82F6" opacity="0.9"/>
+      <text x="107" y="68" text-anchor="middle" fill="#3B82F6" font-size="13" font-weight="700">51.80%</text>
+      <text x="107" y="258" text-anchor="middle" fill="#555" font-size="11">短视频平台</text>
+      <text x="107" y="273" text-anchor="middle" fill="#888" font-size="10">推荐</text>
+
+      <rect x="165" y="94" width="70" height="146" rx="6" fill="#0EA5E9" opacity="0.85"/>
+      <text x="200" y="84" text-anchor="middle" fill="#0EA5E9" font-size="13" font-weight="700">48.20%</text>
+      <text x="200" y="258" text-anchor="middle" fill="#555" font-size="11">内容平台</text>
+      <text x="200" y="273" text-anchor="middle" fill="#888" font-size="10">推荐</text>
+
+      <rect x="258" y="140" width="70" height="100" rx="6" fill="#F59E0B" opacity="0.85"/>
+      <text x="293" y="130" text-anchor="middle" fill="#F59E0B" font-size="13" font-weight="700">40.21%</text>
+      <text x="293" y="258" text-anchor="middle" fill="#555" font-size="11">电视广告</text>
+
+      <rect x="351" y="153" width="70" height="87" rx="6" fill="#94A3B8" opacity="0.85"/>
+      <text x="386" y="143" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="700">36.98%</text>
+      <text x="386" y="258" text-anchor="middle" fill="#555" font-size="11">线下购物摊</text>
+
+      <rect x="444" y="166" width="70" height="74" rx="6" fill="#10B981" opacity="0.85"/>
+      <text x="479" y="156" text-anchor="middle" fill="#10B981" font-size="13" font-weight="700">31.41%</text>
+      <text x="479" y="258" text-anchor="middle" fill="#555" font-size="11">夫妻杂货店</text>
+
+      <rect x="537" y="179" width="36" height="61" rx="6" fill="#8B5CF6" opacity="0.85"/>
+      <text x="555" y="169" text-anchor="middle" fill="#8B5CF6" font-size="11" font-weight="700">其他</text>
+      <text x="555" y="258" text-anchor="middle" fill="#555" font-size="11">其他</text>
+    </svg>
+  </div>
+
+  <div class="insight-box">
+    <strong>🎯 产品启示：</strong>短视频和内容平台是品牌认知的主阵地（合计占比 >90% 的触达影响力），
+    产品需要有<strong>"可传播性"</strong>——无论是口感体验、包装设计还是功能卖点，
+    都要考虑在短视频场景下如何被展示和分享。
+  </div>
+</section>
+
+
+<!-- ============ 第三章：政策监管 ============ -->
+<section id="sec-policy">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#8B5CF6,#7C3AED);">
+      📋
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">三、政策监管</h2>
+      <p class="section-subtitle">食品安全标准 / 行业规范 / 标签标识 / 准入门槛</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #8B5CF6, #7C3AED);"></div>
+  </div>
+
+  <h3 class="subsection">3.1 稀奶油新国标落地（2026 年 3 月）</h3>
+  <div class="card">
+    <p style="font-size:14.5px;line-height:1.8;color:var(--text-medium)">
+      稀奶油新国标于 2026 年 3 月正式实施，对产品定义、脂肪含量、标签标识等进行了规范。
+      <strong>蒙牛率先推出符合新国标的 1L 稀奶油产品</strong>，抢占 B 端烘焙原料市场的合规先机。
+    </p>
+  </div>
+
+  <div class="highlight-box">
+    <strong>对行业影响分析：</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:var(--text-medium)">
+      ✅ 新国标提高了<strong>行业准入门槛</strong>，有利于规范市场竞争<br>
+      ✅ 头部企业凭借技术和合规优势进一步巩固市场地位<br>
+      ⚠️ 中小企业面临合规成本压力<br>
+      📈 行业集中度有望进一步提升
+    </p>
+  </div>
+
+  <h3 class="subsection">3.2 乳制品行业政策体系全景</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">持续实施</div>
+      <div class="timeline-title">补贴制度 — 支持奶业振兴</div>
+      <div class="timeline-desc">支持规模化养殖，提升奶源自给率</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025年3月</div>
+      <div class="timeline-title">食品安全标准修订</div>
+      <div class="timeline-desc">国家卫健委和市场监管总局修订《食品安全国家标准 灭菌乳》</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">持续推进</div>
+      <div class="timeline-title">学生饮用奶计划</div>
+      <div class="timeline-desc">推动乳制品消费下沉和场景拓展</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">持续强化</div>
+      <div class="timeline-title">绿色发展政策</div>
+      <div class="timeline-desc">碳中和牧场建设、粪污资源化利用趋严</div>
+    </div>
+  </div>
+
+  <h3 class="subsection">3.3 健康声称规范</h3>
+  <div class="tag-group">
+    <span class="tag primary">"健字号"酸奶 — 冠益乳是国内唯一获保健食品批文的酸奶</span>
+    <span class="tag accent">低糖/无糖标识 — 需符合 GB 28050 标准</span>
+    <span class="tag success">功能声称 — 禁止未经批准的保健功能宣传</span>
+  </div>
+</section>
+
+
+<!-- ============ 第四章：技术创新 ============ -->
+<section id="sec-tech">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#10B981,#059669);">
+      🔬
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">四、技术创新</h2>
+      <p class="section-subtitle">杀菌技术 / 益生菌 / 奶源技术 / 配方创新 / 包装创新</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #10B981, #059669);"></div>
+  </div>
+
+  <!-- 技术矩阵 -->
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-name">INF 0.09秒超瞬时杀菌 <span class="product-tag tech">伊利金典</span></div>
+      <div class="product-desc">
+        <strong>原理：</strong>0.09秒内完成杀菌，最大程度保留活性蛋白和风味物质<br>
+        <strong>配套：</strong>降氧锁鲜 + RO膜过滤三重工艺<br>
+        <strong>效果：</strong>常温奶实现接近低温奶的新鲜口感
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">5株中国专利复合益生菌 <span class="product-tag tech">蒙牛优益C</span></div>
+      <div class="product-desc">
+        <strong>特点：</strong>每瓶500亿活菌，高效协同配合<br>
+        <strong>菌株优势：</strong>采用中国本土菌株，更适应国人体质<br>
+        <strong>配方：</strong>添加西梅汁+聚葡萄糖，0蔗糖0脂肪
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">益生菌爆珠技术 <span class="product-tag hot">伊利安慕希</span></div>
+      <div class="product-desc">
+        <strong>特点：</strong>将活性益生菌包裹在爆珠中保护菌株活性<br>
+        <strong>体验：</strong>多层嚼感结构，兼具咀嚼乐趣与风味释放<br>
+        <strong>价值：</strong>酸奶→"可感知的体验型零食"
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">A2β-酪蛋白筛选养殖 <span class="product-tag new">QQ星/小鲜语</span></div>
+      <div class="product-desc">
+        <strong>技术：</strong>基因检测筛选A2型β-酪蛋白纯合基因型奶牛<br>
+        <strong>营养：</strong>更亲和人体易吸收，减少肠胃不适<br>
+        <strong>专利：</strong>伊利专利饲喂技术使牛奶自带原生DHA
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">娟姗牛种养殖 <span class="product-tag tech">每日鲜语</span></div>
+      <div class="product-desc">
+        <strong>牛种：</strong>英伦娟姗牛，被称为"奶中贵族"<br>
+        <strong>营养指标：</strong>原生蛋白质 <strong>4.0g/100mL</strong>（普通1.3倍），原生高钙130mg/100mL
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">MLCT+OPO专利亲和配方 <span class="product-tag tech">瑞哺恩</span></div>
+      <div class="product-desc">
+        <strong>突破：</strong>全球首款母源MLCT+新型OPO婴幼儿奶粉<br>
+        <strong>效果：</strong>吸收力提升 <strong>200%</strong>，更贴近母乳
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>💡 技术对产品定义的核心启示：</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12">
+      技术升级不一定需要消费者理解技术原理，但一定要转化为<strong>可感知的体验差异</strong>。<br>
+      消费者不理解 INF 0.09 秒，但能感受到<strong>"不冰也好喝"</strong>。<br>
+      消费者不懂 5 株专利益生菌，但能感受到<strong>"喝了肠胃舒服"</strong>。
+    </p>
+  </div>
+
+  <h3 class="subsection">4.5 包装创新亮点</h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-name">自立袋可加热包装</div>
+      <div class="product-desc">植选豆奶 — 自立袋可直接加热，方便携带和饮用，适配早餐摊/家庭早餐场景</div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">线上线下差异化包装</div>
+      <div class="product-desc">伊利舒化 — 针对线上电商和线下商超设计不同包装，适配不同消费心理和陈列需求</div>
+    </div>
+    <div class="product-card">
+      <div class="product-name">多层结构口感设计</div>
+      <div class="product-desc">蒙牛雪糕系列 — 软芯+冻干粒+脆皮的多层结构，打造差异化口感体验</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 第五章：竞品动态 ============ -->
+<section id="sec-compete">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#EF4444,#DC2626);">
+      🏆
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">五、竞品动态</h2>
+      <p class="section-subtitle">伊利 / 蒙牛 / 农夫山泉 / 元气森林 / 东鹏 / 其他头部品牌动向</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #EF4444, #DC2626);"></div>
+  </div>
+
+  <!-- 竞品Tab切换 -->
+  <div class="tab-container">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(event,'comp-yili')">伊利集团</button>
+      <button class="tab-btn" onclick="switchTab(event,'comp-mengniu')">蒙牛集团</button>
+      <button class="tab-btn" onclick="switchTab(event,'comp-nongfu')">农夫山泉 & 元气森林</button>
+      <button class="tab-btn" onclick="switchTab(event,'comp-others')">东鹏/可口可乐及其他</button>
+    </div>
+
+    <!-- 伊利 -->
+    <div id="comp-yili" class="tab-panel active">
+      <h4 class="subsubsection">液态奶矩阵</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">金典鲜活纯牛奶</div>
+          <div class="product-desc"><strong>定位：</strong>高端常温鲜奶 | <strong>技术：</strong>INF 0.09秒+降氧锁鲜+RO膜过滤</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">臻浓特浓牛奶</div>
+          <div class="product-desc"><strong>定位：</strong>浓郁口感大众消费 | <strong>卖点：</strong>奶香浓/口感浓/营养浓三维强化</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">舒化全线焕新</div>
+          <div class="product-desc"><strong>升级：</strong>超欧盟标准奶源+蛋白质含量提升 | <strong>包装：</strong>线上线下差异化</div>
+        </div>
+      </div>
+      <h4 class="subsubsection">酸奶 & 儿童奶</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">安慕希益生菌爆珠系列</div>
+          <div class="product-desc">BC99活性益生菌爆珠+真实果粒 → 向"可玩乳品零食"升级</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">QQ星A2β+DHA纯牛奶</div>
+          <div class="product-desc">26.3%A2纯合基因奶牛+专利饲喂技术+原生DHA</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">草原酸奶（沙棘/沙果口味）</div>
+          <div class="product-desc">和林格尔沙棘+内蒙沙果+自研草原菌种+慢发酵</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 蒙牛 -->
+    <div id="comp-mengniu" class="tab-panel">
+      <h4 class="subsubsection">功能酸奶</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">冠益乳增强免疫力原味 <span class="product-tag hot">健字号唯一</span></div>
+          <div class="product-desc">
+            国内<strong>唯一获得"健字号"</strong>的保健酸奶 | 10年保健食品认证背书 |
+            BB-12专业益生菌调节肠道+增强免疫力 | 批文稀缺形成高进入壁垒
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">优益C畅快复合活性益生菌</div>
+          <div class="product-desc">
+            蒙牛首款中国专利复合益生菌饮品 | 5株专利益生菌+500亿活菌 |
+            0蔗糖0脂肪+西梅汁聚葡萄糖 | 覆盖早会/午后/熬夜多场景
+          </div>
+        </div>
+      </div>
+      <h4 class="subsubsection">高端鲜奶 & 婴幼儿奶粉</h4>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">每日鲜语4.0娟姗鲜牛奶</div>
+          <div class="product-desc">英伦娟姗牛"奶中贵族" | 原生蛋白4.0g/100mL | 高端鲜奶市场</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">瑞哺恩恩至（婴幼儿）</div>
+          <div class="product-desc">全球首款母源MLCT+新型OPO | 吸收力提升200% | A2-β酪蛋白生牛乳一次成粉</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">HMO儿童成长奶粉</div>
+          <div class="product-desc">99%高纯度HMO+乳铁蛋白+MLCT Oil | 3-15岁儿童精准营养补充</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 农夫&元气 -->
+    <div id="comp-nongfu" class="tab-panel">
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">农夫山泉 电解质水新品</div>
+          <div class="product-desc">
+            定价<strong>3.67元/550ml</strong>精准卡位中间价格带 | 依托200万+终端 |
+            "买二赠一"促销 | 与尖叫形成独立矩阵
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">东方树叶 无糖茶</div>
+          <div class="product-desc">
+            5月全网销量持续领跑，预估<strong>280-320万箱</strong> | 无糖茶成为健康化核心品类
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">NFC橙汁</div>
+          <div class="product-desc">高端果汁市场定位 | 非浓缩还原保留更多营养和风味</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">外星人超能水（3元）</div>
+          <div class="product-desc">重新定义"功能水" | 配料≥99%水 | 抢夺下沉市场替水场景</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">外星人倍燃版</div>
+          <div class="product-desc">添加左旋肉碱+钾镁 | 延伸至燃脂支持场景</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">外星人GO!含气电解质</div>
+          <div class="product-desc">葡萄糖酸锌+维生素B族 | 高强度运动后恢复场景</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 其他 -->
+    <div id="comp-others" class="tab-panel">
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">东鹏 补水啦</div>
+          <div class="product-desc">
+            2025年营收<strong>32.74亿元，同比增长118.99%</strong><br>
+            3400家经销商+450万+终端网点 | 低价深耕下沉市场
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">可口可乐 POWERADE爆锐</div>
+          <div class="product-desc">
+            4月19日山姆会员商店首发 | 首次引入中国市场 | 低糖低卡不含香精
+          </div>
+        </div>
+      </div>
+      <div class="insight-box">
+        <strong>竞争本质总结：</strong>"<strong>产品创新决定上限，渠道效率决定下限。</strong>"<br>
+        农夫山泉200万+终端、东鹏450万+网点是渠道壁垒；特通渠道价值凸显；
+        但渠道强、产品弱也会被新品替代。二者缺一不可。
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 第六章：数据洞察 ============ -->
+<section id="sec-data">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#06B6D4,#0891B2);">
+      📊
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">六、数据洞察</h2>
+      <p class="section-subtitle">市场规模 / 消费者行为 / 品牌认知 / 渠道偏好 / 销量排名</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #06B6D4, #0891B2);"></div>
+  </div>
+
+  <!-- 市场规模总览 -->
+  <h3 class="subsection">6.1 市场规模总览</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>细分领域</th><th>当前规模</th><th>预测规模</th><th>趋势判断</th></tr></thead>
+      <tbody>
+        <tr><td>饮料行业整体</td><td>2025年 15,170亿元</td><td>2026年 16,095亿元</td><td>持续上升，多元化发展</td></tr>
+        <tr><td>无糖饮料</td><td>2025年 615.6亿元</td><td>2028年 815.6亿元</td><td>持续放量，新生主力品类</td></tr>
+        <tr><td>凉茶饮料</td><td>2025年 255.0亿元</td><td>2030稳步增长</td><td>存量博弈期，需价值重塑</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 品类接触度 + 购买因素 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0;">
+    <div class="chart-container">
+      <div class="chart-title">📊 消费者品类接触度 TOP5</div>
+      <img class="chart-img" src="chart_bar.png" alt="消费者品类接触度TOP5柱状图">
+    </div>
+    <div class="chart-container">
+      <div class="chart-title">🥧 购买核心影响因素</div>
+      <img class="chart-img" src="chart_pie.png" alt="购买核心影响因素饼图">
+    </div>
+  </div>
+
+  <!-- 购买影响因素详情 -->
+  <h3 class="subsection">6.3 购买决策关键因素排序</h3>
+  <div class="card">
+    <ol class="content-list">
+      <li><strong>口味口感 — 40.85%</strong> （最重要因素！再次验证"健康与口感难以兼顾"是行业核心痛点）</li>
+      <li><strong>成分安全 — 35.44%</strong></li>
+      <li><strong>健康属性（0糖/0脂/天然） — 34.41%</strong></li>
+      <li><strong>功能诉求（补水/提神/养生） — 34.15%</strong></li>
+    </ol>
+  </div>
+
+  <h3 class="subsection">6.4 购买渠道偏好</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0;">
+    <div class="card">
+      <h4 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;">🛒 线下渠道 TOP3</h4>
+      <div>
+        大型生活超市 <strong>65.00%</strong>
+        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+      </div>
+      <div style="margin-top:10px;">
+        连锁便利店 <strong>63.91%</strong>
+        <div class="progress-bar"><div class="progress-fill" style="width:63.91%"></div></div>
+      </div>
+      <div style="margin-top:10px;">
+        自动贩卖机 <strong>41.41%</strong> ⭐ 新兴快速增长渠道
+        <div class="progress-bar"><div class="progress-fill" style="width:41.41%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;">📱 线上渠道 TOP2</h4>
+      <div>
+        综合电商平台（淘宝/京东/拼多多）<strong>59.42%</strong>
+        <div class="progress-bar"><div class="progress-fill" style="width:59.42%"></div></div>
+      </div>
+      <div style="margin-top:10px;">
+        线上商超平台（美团/饿了么）<strong>48.12%</strong>
+        <div class="progress-bar"><div class="progress-fill" style="width:48.12%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection">6.5 5月全网饮料销量排名</h3>
+  <div class="metrics-row">
+    <div class="metric-card">
+      <div class="metric-value" style="font-size:22px;">🥇 NO.1</div>
+      <div class="metric-label">农夫山泉</div>
+      <div class="metric-trend up">预估 280-320万箱 | 水/茶/NFC</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="font-size:22px;">🥈 NO.2</div>
+      <div class="metric-label">元气森林</div>
+      <div class="metric-trend up">气泡水+电解质水双线领跑</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="font-size:22px;">🥉 NO.3</div>
+      <div class="metric-label">康师傅</div>
+      <div class="metric-trend">茶饮料/包装水 传统强势</div>
+    </div>
+  </div>
+
+  <h3 class="subsection">6.6 促销活动偏好</h3>
+  <div class="card">
+    <ol class="content-list" style="list-style:none;padding-left:0;">
+      <li style="display:flex;align-items:center;gap:12px;padding:10px;background:#F0FDF4;border-radius:8px;margin:6px 0;">
+        <span style="background:#22C55E;color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">1</span>
+        <span style="flex:1;font-weight:600;color:var(--text-dark);">开盖有奖 — 48.15%</span>
+        <span class="tag success">最高</span>
+      </li>
+      <li style="display:flex;align-items:center;gap:12px;padding:10px;background:#F0F9FF;border-radius:8px;margin:6px 0;">
+        <span style="background:#3B82F6;color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">2</span>
+        <span style="flex:1;font-weight:600;color:var(--text-dark);">买一送一 — 45.83%</span>
+      </li>
+      <li style="display:flex;align-items:center;gap:12px;padding:10px;background:#FFFBEB;border-radius:8px;margin:6px 0;">
+        <span style="background:#F59E0B;color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">3</span>
+        <span style="flex:1;font-weight:600;color:var(--text-dark);">打折 — 45.83%</span>
+      </li>
+    </ol>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong>"开盖有奖"排名第一说明 <strong>"趣味性+可得奖励"</strong>最能驱动冲动购买，
+    这为产品包装设计和营销活动提供了明确方向。
+  </div>
+</section>
+
+
+<!-- ============ 第七章：产品启示 ============ -->
+<section id="sec-insight">
+  <div class="section-header">
+    <div class="section-icon" style="background: linear-gradient(135deg,#F97316,#EA580C);">
+      💡
+    </div>
+    <div class="section-title-group">
+      <h2 class="section-title">【产品定义与规划启示】</h2>
+      <p class="section-subtitle">基于本周行业动态提炼的可行动建议</p>
+    </div>
+    <div class="section-line" style="background: linear-gradient(180deg, #F97316, #EA580C);"></div>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 1：技术壁垒是高端线差异化核心</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      INF杀菌、专利益生菌、A2奶源、娟姗牛种等技术形成产品护城河。<br>
+      <strong>关键：</strong>技术需有可感知的产品体验（如"常温也新鲜"、"多层嚼感"），
+      不能只停留在技术参数层面。消费者不理解参数但能感受差异。
+    </p>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 2：场景细分是破圈关键</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      从"大单品"思维转向"场景专属"思维。<br>
+      礼赠、代餐、儿童、中老年、职场、运动等场景均有创新空间。<br>
+      <strong>场景越具体，定位越清晰。</strong>"适合加班喝"比"适合所有人喝"更有说服力。
+    </p>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 3：功能化需有明确背书</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      健字号、专利、学术期刊（《Cell》）、国际奖项（世界乳品创新金奖）是有力支撑。<br>
+      <strong>关键：</strong>功能声称需在合规框架内，避免虚假宣传风险；
+      有背书的功能宣称比自说自话更有说服力。
+    </p>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 4：渠道效率决定下限，产品创新决定上限</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      农夫山泉200万+终端、东鹏450万+网点是渠道壁垒；<br>
+      特通渠道（健身房、学校、运动场馆）价值凸显；<br>
+      短视频和内容平台是品牌认知主阵地。<br>
+      产品再好没有渠道触达也是枉然；但渠道强产品弱也会被替代。二者缺一不可。
+    </p>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 5：清洁标签+透明配料表成为竞争新基准</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      配料表"减法"、天然代糖、0添加成为标配；<br>
+      消费者日益关注配料可识别性和溯源信息。<br>
+      <strong>配料表是产品的"第二包装"，</strong>越简洁越能看懂的配料表越能赢得信任。
+    </p>
+  </div>
+
+  <div class="insight-box" style="margin-bottom:20px;">
+    <strong>启示 6：国潮与东方美学是差异化表达方向</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      传统食材（桂花、马蹄、沙棘、枸杞）与现代工艺结合；<br>
+      地域特色（云南滇红、恩施玉露、长白山蓝莓）打造独特风味；<br>
+      <strong>国潮不是贴个中国风包装就完了，需要从原料、工艺、风味到包装的全方面文化表达。</strong>
+    </p>
+  </div>
+
+  <div class="insight-box">
+    <strong>启示 7：价格策略需与场景和渠道匹配</strong><br>
+    <p style="margin-top:8px;font-size:14px;color:#7C2D12;">
+      电解质水市场的价格分化（3元/3.67元/2.14元）说明：<br>
+      不同价格带对应不同场景和人群，不存在"通吃"的价格点。<br>
+      定价不是成本加成，而是<strong>场景价值+渠道结构+竞争格局</strong>的综合结果。
+    </p>
+  </div>
+</section>
+
+</div><!-- end container -->
+
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="footer">
+  <p style="font-size:15px;font-weight:700;color:white;margin-bottom:8px;">乳制品 & 饮料行业市场动态周报 · 详尽版</p>
+  <p>2026 年 6 月第 1 周（6月1日—6月7日）</p>
+  <p style="margin-top:8px;">数据来源：公开新闻、行业研报、艾媒咨询、益普索、中研普华、前瞻产业研究院等</p>
+  <div class="footer-disclaimer">
+    <strong>免责声明：</strong>本报告由 AI 辅助生成整理，重要决策请经专业人员核验。所有引用来源请用户在重要场景下二次核验时效性与真实性。报告中涉及的市场数据、品牌动态均来自公开渠道，仅供参考学习使用。
+  </div>
+</footer>
+
+
+<!-- ==================== JavaScript ==================== -->
+<script>
+// Tab 切换功能
+function switchTab(e, panelId) {
+  // 找到同一个 tab 容器内的所有按钮和面板
+  const container = e.target.closest('.tab-container');
+  container.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  container.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// 导航高亮
+const sections = document.querySelectorAll('section[id]');
+const tocBtns = document.querySelectorAll('.toc-btn');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  tocBtns.forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('href') === '#' + current) {
+      btn.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateNav);
+
+// 平滑滚动
+document.querySelectorAll('.toc-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

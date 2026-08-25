@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乳饮月报 · 2026年6月</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif; background:#f0f2f5; color:#1a1a2e; line-height:1.8; }
+  .top-nav { position:sticky; top:0; z-index:100; background:rgba(30,58,95,0.97); backdrop-filter:blur(10px); padding:0 32px; display:flex; align-items:center; height:52px; gap:24px; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+  .top-nav .nav-brand { font-size:16px; font-weight:700; color:#fff; text-decoration:none; white-space:nowrap; display:flex; align-items:center; gap:8px; }
+  .top-nav .nav-links { display:flex; gap:4px; margin-left:auto; }
+  .top-nav .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px; padding:6px 14px; border-radius:6px; transition:all 0.15s; }
+  .top-nav .nav-links a:hover { background:rgba(255,255,255,0.12); color:#fff; }
+  .wrapper { max-width:1120px; margin:0 auto; padding:40px 24px; }
+
+  /* Hero */
+  .hero { background:linear-gradient(135deg,#c62828,#b71c1c 30%,#d32f2f 60%,#e53935); border-radius:16px; padding:52px 44px; color:#fff; margin-bottom:32px; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-80px; right:-80px; width:300px; height:300px; background:rgba(255,255,255,0.05); border-radius:50%; }
+  .hero::after { content:''; position:absolute; bottom:-60px; left:30%; width:200px; height:200px; background:rgba(255,255,255,0.03); border-radius:50%; }
+  .hero h1 { font-size:32px; font-weight:700; margin-bottom:6px; position:relative; }
+  .hero .meta { font-size:14px; opacity:0.8; margin-bottom:20px; position:relative; }
+  .hero p { font-size:14px; opacity:0.9; max-width:700px; position:relative; line-height:1.9; }
+
+  /* Tabs */
+  .tab-nav { display:flex; gap:4px; margin-bottom:24px; background:#fff; border-radius:12px; padding:4px; box-shadow:0 1px 3px rgba(0,0,0,0.06); flex-wrap:wrap; }
+  .tab-btn { flex:1; min-width:100px; padding:10px 8px; border:none; background:transparent; font-size:13px; font-weight:500; color:#888; cursor:pointer; border-radius:8px; transition:all 0.2s; font-family:inherit; }
+  .tab-btn.active { background:#1e3a5f; color:#fff; font-weight:600; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+
+  /* Section */
+  .section { background:#fff; border-radius:12px; padding:36px 40px; margin-bottom:24px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .section h2 { font-size:22px; font-weight:700; color:#1e3a5f; margin-bottom:24px; display:flex; align-items:center; gap:10px; padding-bottom:14px; border-bottom:3px solid #eef0f4; }
+  .section h2 .s-icon { font-size:26px; }
+  h3 { font-size:17px; font-weight:600; color:#1e3a5f; margin:24px 0 12px; }
+  h3:first-child { margin-top:0; }
+
+  /* insight cards */
+  .insight-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px; margin-bottom:20px; }
+  .insight-card { background:#f8fafc; border-radius:10px; padding:24px; border-left:4px solid #2d6a9f; transition:box-shadow 0.2s; }
+  .insight-card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+  .insight-card.warn { border-left-color:#e65100; }
+  .insight-card.success { border-left-color:#2e7d32; }
+  .insight-card.hot { border-left-color:#c62828; }
+  .insight-card.purple { border-left-color:#6a1b9a; }
+  .insight-card h4 { font-size:15px; font-weight:600; margin-bottom:10px; color:#1e3a5f; }
+  .insight-card p { font-size:13px; color:#555; line-height:1.8; }
+  .insight-card .source { font-size:11px; color:#999; margin-top:10px; }
+  .insight-card ul { padding-left:18px; margin-top:8px; }
+  .insight-card li { font-size:13px; color:#555; margin-bottom:4px; }
+
+  .tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+  .tag { font-size:11px; padding:3px 10px; border-radius:4px; font-weight:500; }
+  .tag.red { background:#fce4ec; color:#c62828; }
+  .tag.orange { background:#fff3e0; color:#e65100; }
+  .tag.blue { background:#e8f4fd; color:#1565c0; }
+  .tag.green { background:#e8f5e9; color:#2e7d32; }
+  .tag.purple { background:#f3e5f5; color:#6a1b9a; }
+  .tag.teal { background:#e0f2f1; color:#00695c; }
+
+  /* KPI row */
+  .kpi-row { display:flex; gap:16px; margin:24px 0; flex-wrap:wrap; }
+  .kpi-card { flex:1; min-width:150px; background:linear-gradient(135deg,#1e3a5f,#2d6a9f); border-radius:12px; padding:20px; color:#fff; text-align:center; }
+  .kpi-card.accent { background:linear-gradient(135deg,#c62828,#e53935); }
+  .kpi-card.green { background:linear-gradient(135deg,#2e7d32,#43a047); }
+  .kpi-card.orange { background:linear-gradient(135deg,#e65100,#ff9800); }
+  .kpi-card .kpi-val { font-size:28px; font-weight:700; font-family:'DM Mono',monospace; }
+  .kpi-card .kpi-label { font-size:11px; opacity:0.85; margin-top:4px; line-height:1.4; }
+
+  /* Charts */
+  .chart-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+  .chart-grid.three { grid-template-columns:1fr 1fr 1fr; }
+  .chart-card { background:#f8fafc; border-radius:10px; padding:24px; }
+  .chart-card h4 { font-size:14px; font-weight:600; color:#1e3a5f; margin-bottom:14px; }
+  .chart-card.full { grid-column:1/-1; }
+  .chart-card canvas { max-height:260px; }
+  .chart-card .caption { font-size:11px; color:#999; margin-top:10px; }
+
+  /* Data bar */
+  .data-bar { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid #f0f0f0; }
+  .data-bar:last-child { border-bottom:none; }
+  .data-bar .bar-label { width:140px; font-size:13px; font-weight:500; color:#333; flex-shrink:0; }
+  .data-bar .bar-track { flex:1; height:10px; background:#eef0f4; border-radius:5px; overflow:hidden; }
+  .data-bar .bar-fill { height:100%; border-radius:5px; transition:width 0.6s; }
+  .data-bar .bar-value { width:70px; font-size:12px; color:#888; text-align:right; flex-shrink:0; font-family:'DM Mono',monospace; }
+
+  /* Table */
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:13px; }
+  th { background:#1e3a5f; color:#fff; padding:10px 14px; text-align:left; font-weight:500; font-size:12px; }
+  th:first-child { border-radius:6px 0 0 0; }
+  th:last-child { border-radius:0 6px 0 0; }
+  td { padding:10px 14px; border-bottom:1px solid #f0f0f0; color:#555; }
+  tr:hover td { background:#f8fafc; }
+
+  /* Timeline */
+  .timeline { position:relative; padding-left:24px; margin:16px 0; border-left:2px solid #eef0f4; }
+  .timeline-item { margin-bottom:18px; position:relative; }
+  .timeline-item::before { content:''; position:absolute; left:-31px; top:6px; width:10px; height:10px; border-radius:50%; background:#2d6a9f; border:2px solid #fff; box-shadow:0 0 0 2px #2d6a9f; }
+  .timeline-item .tl-date { font-size:11px; color:#999; font-family:'DM Mono',monospace; margin-bottom:2px; }
+  .timeline-item .tl-text { font-size:13px; color:#555; line-height:1.7; }
+
+  /* Brand matrix */
+  .matrix { display:grid; grid-template-columns:60px repeat(6,1fr); gap:0; margin:16px 0; font-size:12px; border:1px solid #eef0f4; border-radius:8px; overflow:hidden; }
+  .matrix .mh { background:#1e3a5f; color:#fff; padding:10px 6px; text-align:center; font-weight:500; }
+  .matrix .mh.rowlabel { background:#2d6a9f; }
+  .matrix .mc { padding:10px 6px; text-align:center; border-bottom:1px solid #f0f0f0; background:#fff; }
+  .matrix .mc.high { background:#e8f5e9; color:#2e7d32; font-weight:600; }
+  .matrix .mc.med { background:#fff8e1; color:#e65100; font-weight:600; }
+  .matrix .mc.low { background:#fce4ec; color:#c62828; }
+  .matrix .mc.rl { background:#f8fafc; text-align:left; font-weight:600; color:#1e3a5f; }
+
+  /* Links */
+  a { color:#2d6a9f; text-decoration:none; border-bottom:1px dotted #2d6a9f; }
+  a:hover { border-bottom-style:solid; }
+
+  /* Footer */
+  .site-footer { text-align:center; padding:36px; font-size:12px; color:#999; border-top:1px solid #eef0f4; margin-top:24px; }
+
+  @media (max-width:768px) {
+    .chart-grid,.chart-grid.three,.insight-cards { grid-template-columns:1fr; }
+    .hero { padding:28px 24px; }
+    .section { padding:20px 20px; }
+    .matrix { font-size:10px; }
+    .top-nav { padding:0 16px; }
+    .kpi-card { min-width:120px; }
+  }
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand"><span>🥛</span> 乳饮月报</a>
+  <div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="weekly-scan-002.html">本周周报</a>
+    <a href="#market">市场</a>
+    <a href="#trends">趋势</a>
+    <a href="#policy">政策</a>
+    <a href="#tech">技术</a>
+    <a href="#competition">竞品</a>
+    <a href="#data">数据</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>📅 乳制品·饮料行业月度报告</h1>
+  <div class="meta">2026年6月全景复盘 ｜ 🕐 发布于 2026-06-26 ｜ 覆盖整月动态</div>
+  <p>本月核心主线：达能约95亿收购MADE集团锚定蛋白赛道；蒙牛M-PLUS打破高蛋白"不可能三角"；英敏特《2026中国消费者》宣告行业从"品类竞争"转向"时刻争夺战"；新茶饮头部品牌集体跨界瓶装饮料；7家乳企排队IPO资本化提速；世界乳品创新大奖中国乳企霸榜。</p>
+</div>
+
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('market')">📊 市场动态</button>
+  <button class="tab-btn" onclick="switchTab('trends')">🔥 消费趋势</button>
+  <button class="tab-btn" onclick="switchTab('policy')">⚖️ 政策监管</button>
+  <button class="tab-btn" onclick="switchTab('tech')">🔬 技术创新</button>
+  <button class="tab-btn" onclick="switchTab('competition')">🎯 竞品动态</button>
+  <button class="tab-btn" onclick="switchTab('data')">📈 数据洞察</button>
+</div>
+
+<!-- ===== 一、市场动态 ===== -->
+<div class="tab-panel active" id="panel-market">
+<div class="section" id="market">
+  <h2><span class="s-icon">📊</span> 一、市场动态</h2>
+
+  <h3>🔴 重大并购：达能约95亿元收购澳洲MADE集团</h3>
+  <div class="insight-card hot" style="margin-bottom:20px;">
+    <p>6月22日，法国达能集团宣布从TPG资本手中收购澳大利亚饮料公司MADE Group，交易估值约20亿澳元（约95亿人民币）。MADE旗下拥有Cocobella、Rokeby等品牌，主打高蛋白即饮、肠道健康酸奶等产品，预计本财年销售额超3亿欧元。<a href="https://www.foodaily.com/index.php/newsflashes/20441">达能同时宣布收购与Saputo Dairy Australia合资的新鲜乳制品企业剩余49%股权</a>。</p>
+    <p style="margin-top:8px;">此次收购是达能在高蛋白健康营养领域的又一重要落子，此前已先后收购英国代餐品牌Huel（约78亿人民币）和美国植物基婴幼儿配方品牌Kate Farms。系列并购清晰展现了达能从传统乳制品企业向"健康营养综合平台"转型的战略决心。<a href="http://www.eeo.com.cn/2026/0624/927218.shtml">据经济观察网报道</a>，这也是达能亚太大区负责人谢伟博今年履新后在该地区的首笔重大收购。</p>
+    <div class="tags"><span class="tag red">重大并购</span><span class="tag orange">蛋白赛道</span><span class="tag blue">达能</span><span class="tag green">健康营养</span></div>
+  </div>
+
+  <h3>🏭 产能扩张：特色乳源建设加速</h3>
+  <div class="insight-cards">
+    <div class="insight-card">
+      <h4>特色乳产能多点开花</h4>
+      <p>6月全国多个乳制品新项目备案，<a href="https://mp.weixin.qq.com/s?__biz=MzA4OTMwNDgzOA==&mid=2650094674&idx=3&sn=95672eff5576a61cc615518a95708879">包括甘肃永昌绵羊奶加工厂（一期）、新疆阿克苏驼乳制品车间、西藏日喀则奶制品厂等</a>。产能扩张方向明显从传统牛乳向绵羊奶、驼乳、羊乳等特色乳源多元化拓展，反映出细分赛道的需求增长和差异化竞争的行业趋势。</p>
+      <div class="tags"><span class="tag green">产能扩张</span><span class="tag purple">特色乳</span><span class="tag blue">绵羊奶</span></div>
+    </div>
+    <div class="insight-card">
+      <h4>"禧兰羊"重塑全球高端乳业赛道</h4>
+      <p>6月17日，新西兰三任总理共同站台"禧兰羊"品牌发布，<a href="https://www.dairychina.cn/html/yaowen/545.html">定位全球高端乳业赛道</a>，以新西兰优质奶源和先进加工技术打造差异化竞争力，进一步丰富了高端乳品市场的供给格局。</p>
+      <div class="tags"><span class="tag purple">高端化</span><span class="tag blue">新西兰</span><span class="tag green">羊乳</span></div>
+    </div>
+  </div>
+
+  <h3>📈 资本市场：乳企IPO潮与板块升温</h3>
+  <div class="insight-cards">
+    <div class="insight-card warn">
+      <h4>7家乳企排队IPO，资本化提速</h4>
+      <p>在国内乳制品行业存量竞争加剧、头部集中度持续走高的背景下，<a href="http://www.51nz.com.cn/data/2026-06-06/131344.html">已有7家乳企排队IPO、4家进入上市辅导</a>。区域乳企和细分赛道龙头正通过资本市场突破资金瓶颈，加速全产业链布局。</p>
+      <div class="tags"><span class="tag red">IPO</span><span class="tag orange">资本化</span></div>
+    </div>
+    <div class="insight-card success">
+      <h4>板块热度回升：庄园牧场、妙可蓝多涨停</h4>
+      <p>6月26日庄园牧场涨停，受经营改善+国资控股+业务拓展多重利好驱动；<a href="https://baijiahao.baidu.com/s?id=1868662857650209780">妙可蓝多6月22日涨停</a>，受益于奶酪业务持续高增长（Q1营收增超30%）和蒙牛增持。</p>
+      <div class="tags"><span class="tag green">涨停</span><span class="tag blue">庄园牧场</span><span class="tag orange">妙可蓝多</span></div>
+    </div>
+  </div>
+
+  <h3>📊 原料价格：黄油奶粉小幅上涨</h3>
+  <p style="font-size:13px;color:#555;">根据同花顺行业追踪（6.16-6.22），<a href="https://stock.10jqka.com.cn/20260622/c677617578.shtml">黄油奶粉价格环比上涨3.20%</a>至3578美元/吨，全脂奶粉则环比下跌3.16%至一定水平。原料奶价格整体仍处低位，但细分品类出现分化信号，黄油类高附加值产品价格回升值得关注。</p>
+</div>
+</div>
+
+<!-- ===== 二、消费趋势 ===== -->
+<div class="tab-panel" id="panel-trends">
+<div class="section" id="trends">
+  <h2><span class="s-icon">🔥</span> 二、消费趋势</h2>
+
+  <h3>📖 英敏特《2026中国消费者》：行业底层逻辑重构</h3>
+  <div class="insight-card hot" style="margin-bottom:20px;">
+    <p>6月24日发布的英敏特报告宣告食品饮料行业底层逻辑的重大转变：<strong>从"品类竞争"走向"时刻争夺战"</strong>。<a href="https://finance.sina.com.cn/cj/2026-06-24/doc-inienicy1520195.shtml">核心判断如下</a>：</p>
+    <ul>
+      <li><strong>场景为王</strong>：近七成消费者在4种以上场景切换不同饮品，饮料正从"解渴工具"演变为全天候"状态管理工具"</li>
+      <li><strong>脑力管理崛起</strong>：37%消费者认为持续舒缓的能量供给比单纯提神更重要，全球"大脑与神经健康"宣称的饮料新品增长344.6%</li>
+      <li><strong>健康定义升级</strong>：从低糖低脂"减法"转向天然原料、透明配方的"加法"，59%消费者增加健康饮食参与度</li>
+      <li><strong>自有品牌崛起</strong>：包装食品市场自有品牌新品占比接近40%，消费者从"选择品牌"转向"选择价值"</li>
+    </ul>
+    <div class="tags"><span class="tag red">场景竞争</span><span class="tag orange">脑力管理</span><span class="tag blue">英敏特</span><span class="tag green">自有品牌</span></div>
+  </div>
+
+  <h3>☕ 新茶饮跨界瓶装饮料：潮起潮落</h3>
+  <div class="insight-cards">
+    <div class="insight-card">
+      <h4>跨界浪潮：星巴克/奈雪/瑞幸/古茗集体入局</h4>
+      <p>6月星巴克在山姆首发能量饮料切入功能饮料赛道；奈雪5月推出电解质水；瑞幸4月底上线即饮咖啡；古茗年初推HPP鲜活果汁。<a href="https://news.qq.com/rain/a/20260608A07K2H00">但多数品牌瓶装业务表现不佳</a>：奈雪瓶装营收从2.93亿跌至1.79亿，蜜雪冰城瓶装水项目已暂停。仅有喜茶通过山姆/胖东来"渠道定制"模式跑出年销过亿单品。</p>
+      <div class="tags"><span class="tag blue">跨界</span><span class="tag orange">瓶装饮料</span><span class="tag green">星巴克</span></div>
+    </div>
+    <div class="insight-card warn">
+      <h4>三大系统挑战：渠道/生产/规模</h4>
+      <p>茶饮咖啡品牌跨界瓶装面临：（1）渠道成本高企，全国铺货需数千万至上亿元；（2）瓶装产品需更严格生产规范，目前基本为代工模式（如星巴克能量饮料由康师傅代工）；（3）规模化盈利门槛高，小批量生产单位成本居高不下。</p>
+      <div class="tags"><span class="tag orange">渠道壁垒</span><span class="tag red">代工模式</span><span class="tag purple">规模门槛</span></div>
+    </div>
+  </div>
+
+  <h3>🥤 新茶饮竞争升维：从"一杯奶茶"到全场景生意</h3>
+  <div class="insight-card purple" style="margin-bottom:20px;">
+    <p>盛夏6月，新茶饮行业竞争维度全面升级。<a href="https://finance.sina.com.cn/jjxw/2026-06-11/doc-iniayskw5595903.shtml">头部品牌集体跳出"一杯奶茶"的边界</a>：茶特调成为全行业标配赛道（抖音话题播放量超460万次），时令鲜果茶饮持续火爆（茶百道荔枝冰奶预售破100万杯），冰淇淋、零食、早餐、咖啡等品类密集上线。据统计，仅6个头部品牌就上新了31款冰品。行业正从"卖饮品"转向"经营门店全时段价值"。</p>
+    <div class="tags"><span class="tag purple">新茶饮</span><span class="tag red">全场景</span><span class="tag orange">茶特调</span><span class="tag blue">冰淇淋</span></div>
+  </div>
+
+  <h3>🧀 草饲乳品：下一个增长极</h3>
+  <div class="insight-card success">
+    <p>2024年全球草饲牛奶市场规模约518亿美元，正处于快速增长阶段。<a href="http://baijiahao.baidu.com/s?id=1867576965235615735">朱丹蓬指出</a>，草饲乳品精准契合消费者对高品质乳品的需求，正在成为中国乳品市场值得关注的增长极。同时，敏感体质人群乳制品消费市场持续释放，羊奶粉年复合增长率保持两位数以上，<a href="https://baijiahao.baidu.com/s?id=1867144611030752205">冠言等品牌在细分赛道加速渗透</a>。</p>
+    <div class="tags"><span class="tag green">草饲</span><span class="tag orange">羊奶粉</span><span class="tag blue">高端化</span></div>
+  </div>
+
+  <h3>🍵 夏季风味趋势：芭乐、茉莉、柿子领跑</h3>
+  <p style="font-size:13px;color:#555;">2026年夏季饮品风味呈现三大热门方向：<a href="https://www.spzs.com/baike/254979.html">芭乐的粉嫩清甜、茉莉的清雅幽香、柿子的温润绵密</a>，三种风味强势霸占茶饮和咖啡菜单。茶饮和咖啡不再是单一甜腻或纯粹苦涩的老路子，风味分层化和社交货币化成为产品设计的核心逻辑。</p>
+</div>
+</div>
+
+<!-- ===== 三、政策监管 ===== -->
+<div class="tab-panel" id="panel-policy">
+<div class="section" id="policy">
+  <h2><span class="s-icon">⚖️</span> 三、政策监管</h2>
+
+  <h3>📋 2026食品安全新规体系持续推进</h3>
+  <div class="insight-card warn" style="margin-bottom:20px;">
+    <p>2026年多项食品安全新规陆续实施，涉及预包装食品标签、网络餐饮服务、进口食品监管等多个领域。<a href="https://word.baidu.com/view/17795e0f336baf1ffc4ffe4733687e21af45ffbc.html">新版乳制品生产许可审查细则</a>将乳制品许可类别从3类扩展至11类，首次将HACCP原理全面融入食品生产通用卫生规范，对生产环境、人员管理、质量管控提出更高标准。</p>
+    <p style="margin-top:8px;">行业监管正从"规模扩张"向"品质升级"深度转型。<a href="https://www.sohu.com/a/975349481_362225">中小企业面临合规成本上升压力</a>，但在细分赛道（有机、A2蛋白、功能乳品）中可凭差异化定位寻找突围路径。</p>
+    <div class="tags"><span class="tag orange">食品安全</span><span class="tag red">许可升级</span><span class="tag blue">HACCP</span></div>
+  </div>
+
+  <h3>🏛️ 国家卫健委发布32项新食品安全国家标准</h3>
+  <p style="font-size:13px;color:#555;"><a href="https://www.nhc.gov.cn/sps/c100087/202509/57d5190b057e4c2eb0157d3be887ebd4.shtml">2025年9月发布的新国标</a>持续在2026年落地实施，其中《食品生产通用卫生规范》新增HACCP原理应用指南，将"预防为主、风险管理"理念制度化。对乳制品行业而言，生产全链条的合规审查将更加严格。</p>
+
+  <h3>📊 本月政策时间线</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="tl-date">2026-01</div><div class="tl-text">新版乳制品生产许可审查细则生效，许可类别从3类扩至11类</div></div>
+    <div class="timeline-item"><div class="tl-date">2026-03</div><div class="tl-text">预包装食品标签新规实施过渡期启动</div></div>
+    <div class="timeline-item"><div class="tl-date">2026-06</div><div class="tl-text">多项食品添加剂使用标准修订进入征求意见阶段</div></div>
+    <div class="timeline-item"><div class="tl-date">2026-H2</div><div class="tl-text">预计网络餐饮服务食品安全监督管理办法细则出台</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ===== 四、技术创新 ===== -->
+<div class="tab-panel" id="panel-tech">
+<div class="section" id="tech">
+  <h2><span class="s-icon">🔬</span> 四、技术创新</h2>
+
+  <h3>🏆 蒙牛M-PLUS：八年攻关改写高蛋白牛奶规则</h3>
+  <div class="insight-card hot" style="margin-bottom:20px;">
+    <p>6月12日，<a href="https://www.dairychina.cn/html/yaowen/544.html">蒙牛发布划时代新品M-PLUS每日蛋白15g原生高蛋白牛乳</a>，每瓶含15克原生乳蛋白和450毫克原生高钙，喝1瓶即可满足每天四分之一的蛋白需求。其独创之处在于高蛋白全部来自天然生牛乳——通过自主专利的<strong>多级膜分离技术</strong>将原生蛋白含量推升至每百毫升12克，打破了行业普遍水平（每百毫升4.4-6克）的天然天花板。</p>
+    <p style="margin-top:8px;">历时8年、上千次试验，蒙牛研发团队同时解决了<strong>更高蛋白、原生营养、出众口感"不可能三角"</strong>：采用EHT酶水解技术实现0乳糖，低温冷滤保留自然清甜奶香。产品发布当日恰逢2026世界杯开幕，借势顶级IP引爆话题。</p>
+    <p style="margin-top:8px;">中国工程院院士任发政指出："普通人群蛋白质需求的快速增长，将成为乳业未来产业规划的重要风向标。"全球42%消费者已将蛋白质视为最重要的营养物质（Innova数据），而中国约45%成年人蛋白质摄入不足，市场空间广阔。</p>
+    <div class="tags"><span class="tag red">原生蛋白</span><span class="tag orange">膜分离</span><span class="tag blue">蒙牛</span><span class="tag green">0乳糖</span></div>
+  </div>
+
+  <h3>🏅 中国乳企在世界乳品创新大奖霸榜</h3>
+  <div class="insight-cards">
+    <div class="insight-card success">
+      <h4>多项国际大奖花落中国</h4>
+      <p>2026世界乳品创新大奖揭晓，蒙牛、飞鹤、君乐宝等中国乳企在多个品类斩获大奖，<a href="http://chengde.schagerl.cn/knews/230184">涵盖最佳儿童乳制品、功能性乳品等核心赛道</a>。中国乳企从"跟跑"到"领跑"的转型路径愈发清晰。</p>
+      <div class="tags"><span class="tag green">国际大奖</span><span class="tag blue">研发创新</span></div>
+    </div>
+    <div class="insight-card">
+      <h4>飞鹤核心原料持续突破</h4>
+      <p>飞鹤在婴幼儿肠道微生态、慢发酵奶酪等核心技术领域持续突破，<a href="https://www.dairychina.cn/html/yaowen/543.html">慢发酵奶酪摘得FBIF Wow食品创新金奖</a>，以全链路创新领跑乳制品赛道。</p>
+      <div class="tags"><span class="tag purple">飞鹤</span><span class="tag orange">核心原料</span></div>
+    </div>
+  </div>
+
+  <h3>🧬 蒙牛营养战略全景：从基础到医学三层布局</h3>
+  <p style="font-size:13px;color:#555;">蒙牛已构建<strong>"基础营养—功能营养—医学营养"</strong>三大战略赛道：基础营养端，通过包装和渠道创新将牛奶输送至下沉市场，打造零乳糖品线拓宽饮奶人群；功能营养端，针对中老年控糖/补钙/心血管、运动人群全场景等推出系列产品；医学营养端，已投产"特康瑞"特殊医学食品项目。蒙牛自主研发了3款HMO、乳铁蛋白等核心原料，拥有19000株菌株资源库，其中Lc19益生菌成果登上《Cell》期刊。<a href="https://www.dairychina.cn/html/yaowen/544.html">M-PLUS的推出标志着其高蛋白版图正式启动</a>。</p>
+</div>
+</div>
+
+<!-- ===== 五、竞品动态 ===== -->
+<div class="tab-panel" id="panel-competition">
+<div class="section" id="competition">
+  <h2><span class="s-icon">🎯</span> 五、竞品动态</h2>
+
+  <h3>📋 6月品牌动作全景矩阵</h3>
+  <table>
+    <tr><th>品牌</th><th>核心动作</th><th>品类/赛道</th><th>战略意图</th></tr>
+    <tr><td><strong>蒙牛</strong></td><td>M-PLUS每日蛋白发布；冰+世界杯限定新品+大润发战略合作</td><td>高蛋白牛奶、冰淇淋</td><td>营养战略升级+体育IP营销</td></tr>
+    <tr><td><strong>达能</strong></td><td>约95亿收购澳洲MADE Group；收购Saputo合资剩余股权</td><td>蛋白饮品、健康酸奶</td><td>健康营养综合平台转型</td></tr>
+    <tr><td><strong>星巴克</strong></td><td>山姆首发能量饮料"冰爽百香果味"（含红参+生咖啡浓缩液）</td><td>功能饮料</td><td>切入功能饮料新赛道</td></tr>
+    <tr><td><strong>喜茶</strong></td><td>纽约曼哈顿首家茶坊（teabar）开业；全球近20款茶特调</td><td>茶特调、海外门店</td><td>业态输出+文化传播</td></tr>
+    <tr><td><strong>奈雪的茶</strong></td><td>推出电解质水（柑橘/西柚）；康普茶特调系列</td><td>电解质水、发酵茶</td><td>全场景饮品+功能化</td></tr>
+    <tr><td><strong>瑞幸咖啡</strong></td><td>即饮咖啡上线（生椰拿铁/经典美式/柚C美式，6-7元/瓶）</td><td>即饮咖啡</td><td>门店外零售场景延伸</td></tr>
+    <tr><td><strong>元气森林</strong></td><td>"创造营2044"19款新品路演；食药同源×地标食材</td><td>全品类饮料</td><td>平台化+中国配料战略</td></tr>
+    <tr><td><strong>霸王茶姬</strong></td><td>"走走系列"茶特调；上海武康路13款意式冰淇淋</td><td>茶特调、冰淇淋</td><td>全球化茶概念+门店增值</td></tr>
+    <tr><td><strong>妙可蓝多</strong></td><td>2025奶酪收入增22.84%，Q1营收增超30%</td><td>奶酪</td><td>聚焦奶酪主业+蒙牛协同</td></tr>
+    <tr><td><strong>飞鹤</strong></td><td>慢发酵奶酪FBIF金奖；婴幼儿肠道微生态研究突破</td><td>奶酪、婴配粉</td><td>全链路创新+技术壁垒</td></tr>
+    <tr><td><strong>古茗</strong></td><td>HPP鲜活果汁上线；合作伙伴大会明确"回归堂食"</td><td>HPP果汁、咖啡+烘焙</td><td>全时段门店经营</td></tr>
+    <tr><td><strong>茶百道</strong></td><td>"荔枝冰奶"回归：预售破100万杯，半天销20万杯</td><td>时令鲜果茶</td><td>经典爆款深耕+供应链优势</td></tr>
+  </table>
+
+  <h3>🔍 关键竞争策略解读</h3>
+  <div class="insight-cards">
+    <div class="insight-card hot">
+      <h4>蒙牛：从"卖牛奶"到"营养解决方案商"</h4>
+      <p>M-PLUS的发布不是孤立事件，而是蒙牛"基础营养→功能营养→医学营养"战略版图的关键落子。总裁高飞"锚定消费者营养需求，以价值创造价值"的战略表述，加上自主研发HMO、乳铁蛋白、益生菌等核心原料的能力，使蒙牛正在从乳制品企业进化为<strong>营养健康综合解决方案提供商</strong>。</p>
+      <div class="tags"><span class="tag red">战略转型</span><span class="tag blue">营养方案</span></div>
+    </div>
+    <div class="insight-card purple">
+      <h4>新茶饮：从品类竞争到"时刻争夺战"</h4>
+      <p>星巴克能量饮料、奈雪电解质水、瑞幸即饮咖啡、古茗HPP果汁——头部茶饮咖啡品牌集体跨界瓶装饮料，本质上是在争夺"消费者离开门店后的时刻"。通过现制门店+瓶装零售的双渠道覆盖，品牌试图在消费者的通勤、办公、运动、居家等全天候场景中占据一席之地。</p>
+      <div class="tags"><span class="tag purple">全场景</span><span class="tag orange">双渠道</span></div>
+    </div>
+    <div class="insight-card success">
+      <h4>喜茶：出海从"拓店"到"文化输出"</h4>
+      <p>喜茶纽约曼哈顿茶坊（teabar）的开业，标志着新茶饮出海进入新阶段——从"拓店跑量"转向"业态输出、文化传播"。全球近20款茶特调成为海内外核心增长引擎，以中国传统原叶茶（九窨茉莉、山青乌龙）为基底的产品路线差异化鲜明。</p>
+      <div class="tags"><span class="tag green">出海</span><span class="tag blue">喜茶</span><span class="tag purple">文化输出</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== 六、数据洞察 ===== -->
+<div class="tab-panel" id="panel-data">
+<div class="section" id="data">
+  <h2><span class="s-icon">📈</span> 六、数据洞察</h2>
+
+  <div class="kpi-row">
+    <div class="kpi-card"><div class="kpi-val">9.05万亿</div><div class="kpi-label">2025中国家用食品消费支出(元)</div></div>
+    <div class="kpi-card accent"><div class="kpi-val">1.315万亿</div><div class="kpi-label">2025非酒精饮料消费支出(元)</div></div>
+    <div class="kpi-card green"><div class="kpi-val">4.3%</div><div class="kpi-label">食品消费支出同比增速</div></div>
+    <div class="kpi-card orange"><div class="kpi-val">5.4%</div><div class="kpi-label">饮料消费支出同比增速</div></div>
+    <div class="kpi-card"><div class="kpi-val">344.6%</div><div class="kpi-label">脑健康饮料新品增长率</div></div>
+    <div class="kpi-card accent"><div class="kpi-val">40%</div><div class="kpi-label">自有品牌包装食品新品占比</div></div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>📊 2025年中国饮料细分市场销售额（亿元）</h4>
+      <canvas id="chartBevSegM"></canvas>
+      <div class="caption">数据来源：英敏特《2026中国消费者》（2026.6发布）</div>
+    </div>
+    <div class="chart-card">
+      <h4>📈 饮料细分市场增速对比（2025 YoY%）</h4>
+      <canvas id="chartBevGrowthM"></canvas>
+      <div class="caption">数据来源：英敏特《2026中国消费者》</div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>🏪 消费决策驱动因素排名</h4>
+      <canvas id="chartDecisionM"></canvas>
+      <div class="caption">数据来源：英敏特（2026）</div>
+    </div>
+    <div class="chart-card">
+      <h4>🥤 新茶饮品牌出海门店数</h4>
+      <canvas id="chartTeaM"></canvas>
+      <div class="caption">截至2026年6月公开数据估算</div>
+    </div>
+  </div>
+
+  <h3>📊 食品饮料市场五年展望</h3>
+  <table>
+    <tr><th>品类</th><th>2025年市场规模</th><th>2030年预计规模</th><th>CAGR</th></tr>
+    <tr><td>家用食品</td><td>9.05万亿元</td><td>11.10万亿元</td><td>4.1%</td></tr>
+    <tr><td>非酒精饮料</td><td>1.315万亿元</td><td>1.647万亿元</td><td>4.4%</td></tr>
+    <tr><td>现制咖啡</td><td>1,951亿元</td><td>—</td><td>14.6% (2025)</td></tr>
+    <tr><td>即饮茶</td><td>1,120亿元</td><td>—</td><td>9.7% (2025)</td></tr>
+    <tr><td>能量饮料</td><td>619亿元</td><td>—</td><td>9.6% (2025)</td></tr>
+    <tr><td>运动/电解质饮料</td><td>303亿元</td><td>—</td><td>13.5% (2025)</td></tr>
+  </table>
+  <div class="caption" style="margin-top:8px;">来源：英敏特《2026中国消费者》、艾媒咨询</div>
+
+  <h3>🎯 消费者饮品场景切换图谱</h3>
+  <div class="data-bar"><span class="bar-label">工作学习（提神）</span><div class="bar-track"><div class="bar-fill" style="width:82%;background:linear-gradient(90deg,#1e88e5,#42a5f5);"></div></div><span class="bar-value">82%</span></div>
+  <div class="data-bar"><span class="bar-label">居家放松（舒缓）</span><div class="bar-track"><div class="bar-fill" style="width:76%;background:linear-gradient(90deg,#43a047,#66bb6a);"></div></div><span class="bar-value">76%</span></div>
+  <div class="data-bar"><span class="bar-label">运动健身（补水）</span><div class="bar-track"><div class="bar-fill" style="width:68%;background:linear-gradient(90deg,#ff9800,#ffb74d);"></div></div><span class="bar-value">68%</span></div>
+  <div class="data-bar"><span class="bar-label">社交聚会（分享）</span><div class="bar-track"><div class="bar-fill" style="width:63%;background:linear-gradient(90deg,#9c27b0,#ce93d8);"></div></div><span class="bar-value">63%</span></div>
+  <div class="data-bar"><span class="bar-label">通勤路上（补给）</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#ef5350,#ef9a9a);"></div></div><span class="bar-value">55%</span></div>
+  <div class="caption" style="margin-top:8px;">消费者在不同场景中切换不同饮品的比例 · 来源：英敏特《2026中国消费者》</div>
+</div>
+</div>
+
+<div class="site-footer">
+  <p><strong>乳饮月报 · 2026年6月</strong> ｜ 覆盖6月整月（6.1-6.30）｜ 乳制品与饮料行业全景复盘</p>
+  <p style="margin-top:6px;">本报告由AI深度研究团队生成，数据来源包括英敏特、艾媒咨询、乳业网、新浪财经、Foodaily等。重要决策请经专业人员核验。</p>
+  <p style="margin-top:6px;"><a href="index.html">← 返回首页</a> ｜ <a href="weekly-scan-002.html">→ 查看本周周报</a></p>
+</div>
+
+</div>
+
+<script>
+// Tab switching
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+  window.location.hash = tab;
+}
+
+// Init charts
+Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#666';
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+
+// Beverage segments
+new Chart(document.getElementById('chartBevSegM'), {
+  type: 'bar',
+  data: {
+    labels: ['现制咖啡','即饮茶','能量饮料','电解质水','中式养生水'],
+    datasets: [{ data: [1951,1120,619,303,120], backgroundColor: ['#c62828','#ff9800','#1e88e5','#43a047','#9c27b0'], borderRadius: 6, barThickness: 36 }]
+  },
+  options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true, grid:{color:'#f0f0f0'}, ticks:{callback:v=>v+'亿'} }, x:{ grid:{display:false} } } }
+});
+
+// Growth rates
+new Chart(document.getElementById('chartBevGrowthM'), {
+  type: 'bar',
+  data: {
+    labels: ['现制咖啡','电解质水','即饮茶','能量饮料','食品'],
+    datasets: [{ data: [14.6,13.5,9.7,9.6,4.3], backgroundColor: ['#c62828','#ff9800','#43a047','#1e88e5','#9e9e9e'], borderRadius: 6, barThickness: 36 }]
+  },
+  options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true, grid:{color:'#f0f0f0'}, ticks:{callback:v=>v+'%'} }, x:{ grid:{display:false} } } }
+});
+
+// Decision drivers
+new Chart(document.getElementById('chartDecisionM'), {
+  type: 'bar',
+  data: {
+    labels: ['新鲜现制','真材实料','配方简单','价格合理','品牌知名'],
+    datasets: [{ data: [89,85,85,72,58], backgroundColor: ['#c62828','#ff9800','#43a047','#1e88e5','#9e9e9e'], borderRadius: 6, barThickness: 32 }]
+  },
+  options: { responsive:true, indexAxis:'y', plugins:{ legend:{display:false} }, scales:{ x:{ beginAtZero:true, grid:{color:'#f0f0f0'}, ticks:{callback:v=>v+'%'} }, y:{ grid:{display:false} } } }
+});
+
+// Tea global
+new Chart(document.getElementById('chartTeaM'), {
+  type: 'bar',
+  data: {
+    labels: ['蜜雪冰城','霸王茶姬','喜茶','奈雪','茶百道'],
+    datasets: [{ data: [4500,500,120,60,30], backgroundColor: ['#c62828','#ff9800','#43a047','#1e88e5','#9c27b0'], borderRadius: 6, barThickness: 32 }]
+  },
+  options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true, grid:{color:'#f0f0f0'}, ticks:{callback:v=>v+'家'} }, x:{ grid:{display:false} } } }
+});
+
+// Open market tab by default, or from hash
+var hash = window.location.hash.replace('#','');
+if (hash && document.getElementById('panel-'+hash)) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+hash).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.textContent.includes(hash === 'market' ? '市场' : hash === 'trends' ? '趋势' : hash === 'policy' ? '政策' : hash === 'tech' ? '技术' : hash === 'competition' ? '竞品' : hash === 'data' ? '数据' : '')) {
+      b.classList.add('active');
+    }
+  });
+}
+</script>
+</body>
+</html>

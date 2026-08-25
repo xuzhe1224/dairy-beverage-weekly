@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乳制品·饮料行业周度扫描 | 2026年6月第1周</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ===== NAV BAR ===== */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(30,58,95,0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    gap: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .top-nav .nav-brand {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .top-nav .nav-brand:hover { opacity: 0.9; }
+  .top-nav .nav-links {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .top-nav .nav-links::-webkit-scrollbar { display: none; }
+  .top-nav .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    border-bottom: none;
+  }
+  .top-nav .nav-links a:hover,
+  .top-nav .nav-links a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  /* ===== COVER HEADER ===== */
+  .cover {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d6a9f 50%, #4a90d9 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    color: #fff;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 40%;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .cover-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .cover .subtitle {
+    font-size: 15px;
+    opacity: 0.85;
+    font-weight: 300;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ===== EXECUTIVE SUMMARY ===== */
+  .exec-summary {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border-left: 4px solid #2d6a9f;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .exec-summary h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 12px;
+  }
+  .exec-summary ul {
+    list-style: none;
+    padding: 0;
+  }
+  .exec-summary li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+  }
+  .exec-summary li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #2d6a9f;
+    font-weight: 700;
+  }
+
+  /* ===== SECTION MODULES ===== */
+  .module {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+  .module:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef0f4;
+  }
+  .module-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .module-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a5f;
+  }
+  .module-header .module-tag {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+
+  /* icon colors */
+  .icon-market { background: #e8f4fd; color: #1976d2; }
+  .icon-product { background: #fff3e0; color: #e65100; }
+  .icon-trend { background: #fce4ec; color: #c62828; }
+  .icon-tech { background: #e8eaf6; color: #283593; }
+  .icon-marketing { background: #f3e5f5; color: #6a1b9a; }
+  .icon-global { background: #e0f2f1; color: #00695c; }
+  .icon-insight { background: #fff8e1; color: #f57f17; }
+
+  .tag-hot { background: #fff0f0; color: #c62828; }
+  .tag-new { background: #e8f5e9; color: #2e7d32; }
+  .tag-watch { background: #fff3e0; color: #e65100; }
+  .tag-global { background: #e0f2f1; color: #00695c; }
+  .tag-key { background: #fce4ec; color: #c62828; }
+
+  /* ===== CONTENT STYLES ===== */
+  .module p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+  .module p:last-child { margin-bottom: 0; }
+
+  strong { color: #1a1a2e; font-weight: 600; }
+  em { color: #2d6a9f; font-style: normal; font-weight: 500; }
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+    border-bottom: 1px dashed #90caf9;
+    transition: border-color 0.2s;
+  }
+  a:hover { border-bottom-color: #1976d2; }
+
+  /* ===== DATA CARDS ===== */
+  .data-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .data-card {
+    background: #f8f9fc;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #eef0f4;
+  }
+  .data-card .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a5f;
+    line-height: 1.2;
+  }
+  .data-card .value.red { color: #c62828; }
+  .data-card .value.green { color: #2e7d32; }
+  .data-card .value.blue { color: #1565c0; }
+  .data-card .value.orange { color: #e65100; }
+  .data-card .label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* ===== CHART CONTAINER ===== */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .chart-box {
+    background: #f8f9fc;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #eef0f4;
+  }
+  .chart-box.full-width {
+    grid-column: 1 / -1;
+  }
+  .chart-box .chart-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chart-box .chart-title .chart-badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #e8f4fd;
+    color: #1976d2;
+  }
+  .chart-box canvas {
+    width: 100% !important;
+    max-height: 260px;
+  }
+  .chart-caption {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ===== PRODUCT TABLE ===== */
+  .product-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0;
+    font-size: 13px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eef0f4;
+  }
+  .product-table thead th {
+    background: #f0f4f8;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #1e3a5f;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .product-table tbody td {
+    padding: 10px 12px;
+    border-top: 1px solid #f0f2f5;
+    color: #444;
+  }
+  .product-table tbody tr:hover { background: #fafbfc; }
+  .product-table .brand { font-weight: 600; color: #1a1a2e; }
+  .product-table .price { color: #c62828; font-weight: 500; }
+  .product-table .highlight { 
+    background: #fff8e1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #e65100;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #dde3eb;
+    border-radius: 1px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 16px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #2d6a9f;
+    background: #fff;
+  }
+  .timeline-item .tl-date {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: #2d6a9f;
+    font-weight: 500;
+  }
+  .timeline-item .tl-content {
+    font-size: 13px;
+    color: #444;
+    margin-top: 2px;
+    line-height: 1.6;
+  }
+  .timeline-item .tl-content strong { color: #1a1a2e; }
+
+  /* ===== INSIGHT BOX ===== */
+  .insight-box {
+    background: linear-gradient(135deg, #fffde7, #fff8e1);
+    border: 1px solid #ffe082;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .insight-box h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e65100;
+    margin-bottom: 10px;
+  }
+  .insight-box ol {
+    padding-left: 20px;
+  }
+  .insight-box li {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .insight-box li strong { color: #e65100; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eef0f4;
+    margin-top: 16px;
+  }
+  .report-footer a { color: #999; border-bottom: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .chart-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .report-wrapper { padding: 16px; }
+    .cover { padding: 32px 24px; }
+    .cover h1 { font-size: 22px; }
+    .cover-meta { flex-direction: column; gap: 8px; }
+    .module { padding: 20px; }
+    .data-cards { grid-template-columns: repeat(2, 1fr); }
+    .product-table { font-size: 12px; }
+    .top-nav .nav-links a { font-size: 11px; padding: 4px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">🥛 乳饮周报</a>
+  <div class="nav-links">
+    <a href="#summary" class="active">要点</a>
+    <a href="#market">市场</a>
+    <a href="#products">新品</a>
+    <a href="#trends">趋势</a>
+    <a href="#tech">技术</a>
+    <a href="#marketing">营销</a>
+    <a href="#global">海外</a>
+    <a href="#insights">启示</a>
+  </div>
+</nav>
+
+<div class="report-wrapper">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-tag">WEEKLY SCAN · 周度扫描</div>
+    <h1>乳制品·饮料行业市场动态</h1>
+    <div class="subtitle">中国市场为主 · 海外趋势为辅 ｜ 服务产品定义与规划</div>
+    <div class="cover-meta">
+      <span>📅 2026年6月第1周（5.26—6.1）</span>
+      <span>📋 第001期</span>
+      <span>🔍 26条信源</span>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary" id="summary">
+    <h2>⚡ 本周要点速览</h2>
+    <ul>
+      <li>原奶价格触底回升，地方政府首设高于市价的指导价，政策底信号明确</li>
+      <li>功能水赛道"诸神之战"：农夫山泉、元气森林、蒙牛、可口可乐同期入局电解质水/蛋白水</li>
+      <li>伊利/蒙牛同步押注透明蛋白水——液奶基本盘增长遇瓶颈，乳企加速跨界饮料</li>
+      <li>米乳品类突围：元气森林"淡真糙米乳"被公认2026最具潜质黑马</li>
+      <li>HMO国产替代加速，产能释放有望推动原料价格进入下行通道</li>
+      <li>渠道变革深化：即时零售+会员店+零食折扣店成新增长极，传统商超份额降至35%以下</li>
+    </ul>
+  </div>
+
+  <!-- MODULE 1: MARKET -->
+  <div class="module" id="market">
+    <div class="module-header">
+      <div class="module-icon icon-market">📊</div>
+      <h2>市场动态</h2>
+      <span class="module-tag tag-key">关键信号</span>
+    </div>
+
+    <!-- CHARTS: Market -->
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-title">原奶价格对比 <span class="chart-badge">元/kg</span></div>
+        <canvas id="chartMilkPrice"></canvas>
+        <div class="chart-caption">数据来源：农业农村部、各省生鲜乳交易参考价</div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">乳制品渠道份额变迁 <span class="chart-badge">2024 vs 2026</span></div>
+        <canvas id="chartChannel"></canvas>
+        <div class="chart-caption">传统商超份额已降至35%以下</div>
+      </div>
+    </div>
+
+    <div class="data-cards">
+      <div class="data-card">
+        <div class="value green">2.5-2.6</div>
+        <div class="label">元/kg · 散奶价格（5月）</div>
+      </div>
+      <div class="data-card">
+        <div class="value blue">3.26-3.28</div>
+        <div class="label">元/kg · 政府指导价（Q2）</div>
+      </div>
+      <div class="data-card">
+        <div class="value red">&lt;35%</div>
+        <div class="label">传统商超渠道份额</div>
+      </div>
+      <div class="data-card">
+        <div class="value green">+39.89%</div>
+        <div class="label">新乳业Q1归母净利增幅</div>
+      </div>
+    </div>
+
+    <p><strong>原奶价格触底企稳，政策干预信号明确。</strong>农业农村部数据显示，5月全国散奶价格从4月的2.4元/公斤回升至2.5-2.6元/公斤（<a href="https://zhuanlan.zhihu.com/p/2039330131123164673">原奶价格监测(三)</a>）。宁夏、河北等主产区先后发布二季度生鲜乳交易参考价，分别为3.28元/公斤和3.26元/公斤——系<em>近三年首次由地方政府主动设定高于市场实际成交价的指导价</em>，释放政策层开始干预底部的明确信号（<a href="https://www.shiyetoutiao.cn/article/165390.html">原奶过剩已终结</a>）。中信证券5月研报指出，2026年原奶供需格局改善，淘汰母牛价格升至22元/kg以上，龙头牧业加速布局肉牛业务（<a href="https://caifuhao.eastmoney.com/news/20260526133116079348330">中信证券研报</a>）。</p>
+
+    <p><strong>渠道变革加速，即时零售与会员店成增长极。</strong>蒙牛新兴渠道（会员店、即时零售、零食折扣店）快速增长，有效对冲传统商超客流下滑（<a href="https://baijiahao.baidu.com/s?id=1861157674367713712">蒙牛全场景触达</a>）。新乳业以DTC模式为核心，深耕O2O即时零售、会员店、零食折扣店及茶饮餐饮渠道，Q1归母净利大增39.89%（<a href="https://www.cfsn.cn/news/detail/36/346697.html">新乳业一季报</a>）。</p>
+
+    <!-- TIMELINE: Capital & Policy -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-date">2026-01</div>
+        <div class="tl-content"><strong>君乐宝</strong>递交港股上市申请，以5.0%婴配粉份额位列行业第五（<a href="https://www.sohu.com/a/990408251_122500470">君乐宝IPO</a>）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2026-03</div>
+        <div class="tl-content">国家卫健委修订《食品安全国家标准灭菌乳》，<em>明确禁止在灭菌乳中添加复原乳</em>（<a href="https://www.huaon.com/channel/trend/1158228.html">行业趋势分析</a>）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2026-05</div>
+        <div class="tl-content">对欧盟进口乳制品实施临时反补贴措施，为国产乳企营造更公平竞争环境（<a href="https://www.vzkoo.com/read/4636638375535710208.html">2026年食品饮料行业</a>）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2026-05-29</div>
+        <div class="tl-content"><strong>菊乐股份</strong>历经九年五度叩关，通过北交所IPO审议，2025年营收16.94亿元（<a href="https://t.10jqka.com.cn/pid_633290773.shtml">菊乐股份IPO过会</a>）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2: NEW PRODUCTS -->
+  <div class="module" id="products">
+    <div class="module-header">
+      <div class="module-icon icon-product">🆕</div>
+      <h2>新品追踪</h2>
+      <span class="module-tag tag-hot">高热度</span>
+    </div>
+
+    <!-- CHART: Product Price Comparison -->
+    <div class="chart-grid">
+      <div class="chart-box full-width">
+        <div class="chart-title">本周重点新品一览 <span class="chart-badge">按赛道分色</span></div>
+        <canvas id="chartProducts"></canvas>
+        <div class="chart-caption">气泡大小代表市场关注度；颜色区分赛道：电解质水 / 蛋白水 / 米乳 / 无糖茶</div>
+      </div>
+    </div>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>品牌</th>
+          <th>产品</th>
+          <th>规格/定价</th>
+          <th>核心卖点</th>
+          <th>标签</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="brand">农夫山泉</td>
+          <td>电解质水</td>
+          <td class="price">550ml / &lt;4元</td>
+          <td>添加烟酰胺+VB6，300万终端+开盖赢奖</td>
+          <td><span class="highlight">主品牌入局</span></td>
+        </tr>
+        <tr>
+          <td class="brand">元气森林</td>
+          <td>超能水</td>
+          <td class="price">600ml / 3元</td>
+          <td>水≥99%+天然电解质+柠檬提取物，极简配方</td>
+          <td><span class="highlight">价格腰斩</span></td>
+        </tr>
+        <tr>
+          <td class="brand">蒙牛</td>
+          <td>乳钙电解质饮料</td>
+          <td class="price">—</td>
+          <td>"补水+补钙"新分支，线上试销月破10万瓶</td>
+          <td><span class="highlight">差异化</span></td>
+        </tr>
+        <tr>
+          <td class="brand">可口可乐</td>
+          <td>POWERADE爆锐</td>
+          <td class="price">—</td>
+          <td>中国首款正式电解质水，山姆首发</td>
+          <td><span class="highlight">渠道首发</span></td>
+        </tr>
+        <tr>
+          <td class="brand">伊利</td>
+          <td>Puritime透明蛋白水</td>
+          <td class="price">300ml / —</td>
+          <td>9g分离乳清蛋白+低钠电解质+40%柠檬汁</td>
+          <td><span class="highlight">日常水替</span></td>
+        </tr>
+        <tr>
+          <td class="brand">蒙牛</td>
+          <td>分离乳清蛋白水</td>
+          <td class="price">250ml / —</td>
+          <td>10g蛋白+BCAA+1250mg胶原蛋白肽</td>
+          <td><span class="highlight">运动营养</span></td>
+        </tr>
+        <tr>
+          <td class="brand">元气森林</td>
+          <td>淡真糙米乳</td>
+          <td class="price">—</td>
+          <td>东北糙米+酶解米浆工艺，低糖低脂，早餐场景</td>
+          <td><span class="highlight">米乳黑马</span></td>
+        </tr>
+        <tr>
+          <td class="brand">东鹏饮料</td>
+          <td>焙好茶无糖茶</td>
+          <td class="price">500ml / 3元</td>
+          <td>茉莉乌龙+凤凰单枞，"1+6"战略首发</td>
+          <td><span class="highlight">3元价格带</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>功能水赛道进入"诸神之战"。</strong>电解质水三年扩容超7倍至200亿元，农夫山泉以主品牌+300万终端入场，元气森林3元腰斩防守，蒙牛以"补水+补钙"差异化入局，可口可乐携山姆首发（<a href="https://baijiahao.baidu.com/s?id=1865419986662612837">功能水诸神之战</a>）。</p>
+
+    <p><strong>蛋白水成为乳企跨界新焦点。</strong>伊利Puritime采用<em>高含量分离乳清蛋白透明溶解技术</em>，实现"喝水就能补蛋白"（<a href="https://finance.sina.com.cn/cj/2026-05-28/doc-inhzmayu7933621.shtml">伊利黑科技</a>）。蒙牛瞄准专业运动营养场景。深层原因：2025年伊利液体乳收入同比下降6.11%，蒙牛液态奶收入同比下滑11.12%（<a href="https://www.sohu.com/a/1022619714_121931470">EBC轻食大会</a>）。</p>
+
+    <p><strong>米乳品类突围。</strong>元气森林"淡真糙米乳"在4月创造营路演拿下双料冠军，被公认2026年最具潜质黑马（<a href="https://www.foodaily.com/index.php/newsflashes/20006">元气森林上新</a>）。</p>
+  </div>
+
+  <!-- MODULE 3: TRENDS -->
+  <div class="module" id="trends">
+    <div class="module-header">
+      <div class="module-icon icon-trend">🔥</div>
+      <h2>趋势热点</h2>
+      <span class="module-tag tag-hot">持续升温</span>
+    </div>
+
+    <!-- CHARTS: Trends -->
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-title">功能饮料细分市场规模 <span class="chart-badge">亿元</span></div>
+        <canvas id="chartFuncBev"></canvas>
+        <div class="chart-caption">数据来源：品饮汇、行业研究报告</div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">低度酒市场增长 <span class="chart-badge">亿元</span></div>
+        <canvas id="chartLowAlcohol"></canvas>
+        <div class="chart-caption">2020-2024年CAGR达30%</div>
+      </div>
+    </div>
+
+    <div class="data-cards">
+      <div class="data-card">
+        <div class="value blue">1665亿</div>
+        <div class="label">中国功能饮料市场规模(2025)</div>
+      </div>
+      <div class="data-card">
+        <div class="value green">&gt;12%</div>
+        <div class="label">功能饮料年复合增长率</div>
+      </div>
+      <div class="data-card">
+        <div class="value orange">200亿</div>
+        <div class="label">电解质水市场(3年7倍)</div>
+      </div>
+      <div class="data-card">
+        <div class="value red">570亿+</div>
+        <div class="label">低度酒市场(2024)</div>
+      </div>
+    </div>
+
+    <p><strong>健康化/功能化从"可选项"变为"必选项"。</strong>品饮汇发布2026四大创新趋势：低度酒饮升温、轻功能饮再进化、"品类+"改写传统格局、渠道定制（<a href="http://www.chinadevelopment.com.cn/zxsd/2026/0602/1998624.shtml">品饮汇四大趋势</a>）。"药食同源"中式养生水市场2024-2025年间至少23个品牌推出59款新品、49种口味。</p>
+
+    <p><strong>消费需求从"笼统健康"向"精准解决具体问题"迁移。</strong>消费者不再满足于"对身体好"的笼统诉求，而是针对<em>熬夜后、久坐时、运动完、情绪低落</em>等具体生活状态寻求即时、轻量、有效的饮品解决方案。盼盼"三方四季"养生饮在山姆成爆品、香飘飘"古方五红暖茶"精准匹配女性群体需求。</p>
+
+    <p><strong>低度酒饮赛道快速升温。</strong>中国低度酒市场规模从2020年的200亿元飙升至2024年的超570亿元，四年CAGR达30%。会稽山"黄酒+气泡"首创工艺、爽露爽"孝感米酒"从餐饮延伸至多元场景。</p>
+
+    <p><strong>社交媒体方面，</strong>电解质水和蛋白水在小红书/抖音种草热度持续攀升。全球范围内"怪异即胜利"（Weird is Winning）趋势在TikTok等平台流行（<a href="https://www.accio.com/business/trending-beverage-innovations-2026">Trending Beverage Innovations</a>）。</p>
+  </div>
+
+  <!-- MODULE 4: TECH & PACKAGING -->
+  <div class="module" id="tech">
+    <div class="module-header">
+      <div class="module-icon icon-tech">🔬</div>
+      <h2>技术工艺与包装创新</h2>
+      <span class="module-tag tag-new">技术突破</span>
+    </div>
+
+    <!-- CHART: HMO Price Trend -->
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-title">HMO原料价格走势预测 <span class="chart-badge">万元/吨</span></div>
+        <canvas id="chartHMO"></canvas>
+        <div class="chart-caption">国产产能释放推动价格进入下行通道</div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">蛋白水产品技术对比 <span class="chart-badge">g/瓶</span></div>
+        <canvas id="chartProtein"></canvas>
+        <div class="chart-caption">数据来源：各品牌产品公开信息</div>
+      </div>
+    </div>
+
+    <p><strong>HMO原料审批提速+国产替代加速。</strong>2月国家卫健委扩增2'-FL和LNnT生产菌来源，并加速3'-SL、3-FL、LNT等新成分审批，国内可用HMO成分有望从3种扩展至5种（<a href="https://www.163.com/dy/article/KTNEK7RB05465CCQ.html">HMO审批破冰</a>）。同兮生物二期3000吨生产线计划4月投产，朗坤环境740吨二期预计2026年投产。多方产能释放有望推动HMO原料价格（目前40-60万元/吨）进入下行通道。</p>
+
+    <p><strong>透明蛋白溶解技术突破。</strong>伊利Puritime采用高含量分离乳清蛋白透明溶解技术，解决蛋白饮品"浑浊、厚重"的感官痛点。蒙牛则采用超滤和微滤工艺，蛋白纯度>85%。盒马"分离乳清蛋白闪充水"每瓶含12.5g蛋白，同样采用超滤膜分离技术。</p>
+
+    <p><strong>膜分离与超滤技术成为乳品深加工核心。</strong>推动产品向更高蛋白质和更低乳糖方向发展，已在头部工厂普及应用（<a href="https://m.chinairn.com/news/20260528/164439115.shtml">乳制品行业发展趋势</a>）。</p>
+
+    <p><strong>包装可持续转型从边缘走向主流。</strong>全球五大趋势：轻量化、可回收、生物基材料、智能包装及小规格精准营养包装（<a href="https://www.toutiao.com/article/7623342677412659718/">乳制品包装五大趋势</a>）。英国Prism为Bio&Me提供的全回收套标方案被视为乳制品行业首创可持续包装案例（<a href="https://www.replasinfo.com/2026/06/insights/">Prism可持续包装</a>）。</p>
+  </div>
+
+  <!-- MODULE 5: MARKETING -->
+  <div class="module" id="marketing">
+    <div class="module-header">
+      <div class="module-icon icon-marketing">🎯</div>
+      <h2>营销玩法</h2>
+      <span class="module-tag tag-watch">值得关注</span>
+    </div>
+
+    <!-- CHART: IP Collab -->
+    <div class="chart-grid">
+      <div class="chart-box full-width">
+        <div class="chart-title">2026年1-5月餐饮IP联名类型分布 <span class="chart-badge">210次</span></div>
+        <canvas id="chartIP"></canvas>
+        <div class="chart-caption">数据来源：文创潮统计</div>
+      </div>
+    </div>
+
+    <p><strong>餐饮IP联名频次飙升，国产IP成主力。</strong>2026年1-5月餐饮行业已展开<em>210次</em>IP或品牌联名，游戏、动漫、潮玩等国产IP成为联名主力（<a href="https://finance.sina.com.cn/wm/2026-05-25/doc-inhzeknu3029575.shtml">200+联名</a>）。5月初肯德基与寻找独角兽旗下潮玩IP"FARMER BOB"与"RiCO"打造联名限定主题店，18座城市落地。</p>
+
+    <p><strong>乳企马年谐音梗营销大战。</strong>伊利先后官宣马思纯、马伊琍为品牌代言人，推出"马年喝伊利"谐音梗营销，大面积铺设地铁线下场景引发UGC传播。有分析认为，这波营销意外使蒙牛受益——当全网刷"我是马伊琍，马年喝伊利"时，蒙牛反向营销获得大量关注（<a href="https://www.foodtalks.cn/news/61184">马年营销大战</a>）。</p>
+
+    <p><strong>渠道定制（PB）成为中小品牌增长新通道。</strong>均瑶健康×盒马"J26百亿活菌青梅水"上线约3个月出货量达130万瓶，助力盒马跃升为均瑶健康第五大客户。盒马已将PB饮品研发周期压缩至<em>12周</em>，仅为传统品牌平均时间的70%（<a href="http://www.chinadevelopment.com.cn/zxsd/2026/0602/1998624.shtml">品饮汇趋势</a>）。</p>
+  </div>
+
+  <!-- MODULE 6: GLOBAL -->
+  <div class="module" id="global">
+    <div class="module-header">
+      <div class="module-icon icon-global">🌍</div>
+      <h2>海外趋势</h2>
+      <span class="module-tag tag-global">灵感参考</span>
+    </div>
+
+    <!-- CHARTS: Global -->
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-title">中国新茶饮出海门店 <span class="chart-badge">家</span></div>
+        <canvas id="chartTeaGo"></canvas>
+        <div class="chart-caption">数据截至2026年5月</div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">亚太乳制品市场规模预测 <span class="chart-badge">亿美元</span></div>
+        <canvas id="chartAsiaDairy"></canvas>
+        <div class="chart-caption">CAGR 4.81%，来源：Mordor Intelligence</div>
+      </div>
+    </div>
+
+    <div class="data-cards">
+      <div class="data-card">
+        <div class="value blue">1975亿</div>
+        <div class="label">美元 · 亚太乳制品市场(2026)</div>
+      </div>
+      <div class="data-card">
+        <div class="value green">4.81%</div>
+        <div class="label">CAGR · 预计至2031年</div>
+      </div>
+      <div class="data-card">
+        <div class="value orange">1648亿</div>
+        <div class="label">美元 · 全球功能饮料市场</div>
+      </div>
+      <div class="data-card">
+        <div class="value red">4000+</div>
+        <div class="label">蜜雪冰城海外门店数</div>
+      </div>
+    </div>
+
+    <p><strong>亚太乳制品市场稳健增长。</strong>Mordor Intelligence数据显示，亚太乳制品市场2026年规模约1975.1亿美元，预计以4.81% CAGR增长至2031年的2498亿美元（<a href="https://www.mordorintelligence.com/industry-reports/asia-pacific-dairy-market">亚太乳制品市场</a>）。</p>
+
+    <p><strong>东南亚乳制品创新以肠道健康和便捷化为主。</strong>泰国在发酵菌种筛选和益生菌包埋技术上形成集群优势，膜分离技术、酶改性工艺和智能包装专利申请量2022-2025年累计达3400件（<a href="https://www.gepresearch.com/77/view-1069701-1.html">东南亚乳制品趋势</a>）。</p>
+
+    <p><strong>全球功能饮料"清洁标签+临床验证"趋势。</strong>品牌开始投资临床研究验证功能声称（如Olipop证明产品可改善血糖反应），简化成分表和天然甜味剂成为标配。蛋白饮料受<em>GLP-1减重药物用户需求驱动</em>，蛋白+纤维双重强化成为新品标配方向（<a href="https://www.accio.com/business/trending-beverage-innovations-2026">Trending Beverage Innovations</a>）。</p>
+
+    <p><strong>中国新茶饮加速出海。</strong>蜜雪冰城海外门店超4000家，4月巴西首店开业；霸王茶姬海外门店接近350家，计划Q2进入韩国首尔；喜茶海外超100家；奈雪形成纽约+硅谷"双核"布局（<a href="https://baijiahao.baidu.com/s?id=1863336000712411046">新茶饮出海</a>）。五部门联合发布《茶产业提质升级指导意见》，将茶饮出海上升为国家战略。</p>
+  </div>
+
+  <!-- MODULE 7: PRODUCT INSIGHTS -->
+  <div class="insight-box" id="insights">
+    <h3>💡 产品启示——对你产品定义和规划的参考</h3>
+    <ol>
+      <li><strong>功能水赛道窗口期正在收窄</strong>——电解质水+蛋白水同期涌入6+大品牌，先发优势极短。如考虑入局，需找到更细分的"功能+场景"组合（参考蒙牛"补水+补钙"的分支思路）。</li>
+      <li><strong>"透明蛋白水"品类值得重点跟踪</strong>——伊利和蒙牛同步押注意味着赛道已获验证，透明溶解技术突破降低了消费者感知门槛，"喝水即补蛋白"可能成为下一个"0糖"级品类概念。</li>
+      <li><strong>米乳/谷物饮是2026年值得布局的新品类</strong>——元气森林双料冠军验证了市场潜力，酶解米浆工艺使口感更清爽，早餐场景切入逻辑清晰。</li>
+      <li><strong>渠道定制（PB）是新品牌/小品牌的增长捷径</strong>——盒马PB饮品研发周期仅12周，均瑶健康×盒马3个月130万瓶。如果你有渠道资源，PB合作可大幅降低试错成本。</li>
+      <li><strong>HMO成本下降将打开婴配粉及儿童乳品创新空间</strong>——原料从40-60万/吨的下行通道意味着中端产品也能搭载HMO，功能差异化门槛降低。</li>
+      <li><strong>GLP-1用户群体正在创造新的产品需求</strong>——海外"蛋白+纤维双重强化"趋势值得关注，国内尚处早期，可能是先行者的机会。</li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="report-footer">
+    <p>乳制品·饮料行业周度扫描 第001期 ｜ 数据周期：2026年5月26日—6月1日</p>
+    <p style="margin-top:4px;">本报告由 AI 深度研究团队生成，重要决策请经专业人员核验。所有引用来源请用户在重要场景下二次核验时效性与真实性。</p>
+  </div>
+
+</div>
+
+<script>
+// Chart.js global defaults
+Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#666';
+Chart.defaults.plugins.legend.labels.boxWidth = 12;
+Chart.defaults.plugins.legend.labels.padding = 12;
+
+// 1. 原奶价格对比
+new Chart(document.getElementById('chartMilkPrice'), {
+  type: 'bar',
+  data: {
+    labels: ['4月散奶', '5月散奶', '河北指导价(Q2)', '宁夏指导价(Q2)', '2025全国均价'],
+    datasets: [{
+      label: '价格 (元/kg)',
+      data: [2.4, 2.55, 3.26, 3.28, 3.06],
+      backgroundColor: ['#90caf9','#42a5f5','#1e88e5','#1565c0','#64b5f6'],
+      borderRadius: 6,
+      barPercentage: 0.7,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { callback: v => v.toFixed(1) } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 2. 渠道份额变迁
+new Chart(document.getElementById('chartChannel'), {
+  type: 'bar',
+  data: {
+    labels: ['传统商超', '即时零售', '会员店', '零食折扣店', '线上电商', '餐饮/特通'],
+    datasets: [
+      {
+        label: '2024年',
+        data: [42, 12, 8, 5, 22, 11],
+        backgroundColor: 'rgba(66,165,245,0.3)',
+        borderColor: '#42a5f5',
+        borderWidth: 1.5,
+        borderRadius: 4,
+      },
+      {
+        label: '2026年(估)',
+        data: [33, 18, 13, 9, 18, 9],
+        backgroundColor: 'rgba(30,136,229,0.7)',
+        borderColor: '#1e88e5',
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { callback: v => v + '%' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 3. 新品概览 (bubble chart style - using horizontal bar for clarity)
+new Chart(document.getElementById('chartProducts'), {
+  type: 'bar',
+  data: {
+    labels: ['农夫山泉 电解质水', '元气森林 超能水', '蒙牛 乳钙电解质饮料', '可口可乐 POWERADE', '伊利 Puritime蛋白水', '蒙牛 蛋白水', '元气森林 糙米乳', '东鹏 焙好茶'],
+    datasets: [{
+      label: '终端定价 (元)',
+      data: [3.9, 3, null, null, null, null, null, 3],
+      backgroundColor: 'rgba(66,165,245,0.7)',
+      borderRadius: 4,
+    },{
+      label: '蛋白含量 (g/瓶)',
+      data: [null, null, null, null, 9, 10, null, null],
+      backgroundColor: 'rgba(255,152,0,0.7)',
+      borderRadius: 4,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { beginAtZero: true, grid: { color: '#f0f0f0' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// 4. 功能饮料细分市场
+new Chart(document.getElementById('chartFuncBev'), {
+  type: 'doughnut',
+  data: {
+    labels: ['能量饮料', '电解质水', '蛋白饮料', '中式养生水', '其他功能饮'],
+    datasets: [{
+      data: [680, 200, 310, 120, 355],
+      backgroundColor: ['#1e88e5','#42a5f5','#ff9800','#ef5350','#90caf9'],
+      borderWidth: 2,
+      borderColor: '#fff',
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { padding: 8 } },
+    }
+  }
+});
+
+// 5. 低度酒市场增长
+new Chart(document.getElementById('chartLowAlcohol'), {
+  type: 'bar',
+  data: {
+    labels: ['2020', '2021', '2022', '2023', '2024'],
+    datasets: [{
+      label: '市场规模 (亿元)',
+      data: [200, 280, 370, 460, 570],
+      backgroundColor: ['#ef9a9a','#e57373','#ef5350','#e53935','#c62828'],
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f0f0f0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 6. HMO价格走势
+new Chart(document.getElementById('chartHMO'), {
+  type: 'line',
+  data: {
+    labels: ['2024', '2025', '2026E', '2027E', '2028E'],
+    datasets: [{
+      label: '2\'-FL 价格',
+      data: [65, 55, 45, 35, 28],
+      borderColor: '#1e88e5',
+      backgroundColor: 'rgba(30,136,229,0.08)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 4,
+      pointBackgroundColor: '#1e88e5',
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: false, grid: { color: '#f0f0f0' }, ticks: { callback: v => v + '万' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 7. 蛋白水对比
+new Chart(document.getElementById('chartProtein'), {
+  type: 'bar',
+  data: {
+    labels: ['盒马 闪充水', '蒙牛 蛋白水', '伊利 Puritime'],
+    datasets: [
+      {
+        label: '蛋白含量 (g)',
+        data: [12.5, 10, 9],
+        backgroundColor: 'rgba(255,152,0,0.7)',
+        borderRadius: 6,
+      },
+      {
+        label: '容量 (ml)',
+        data: [0, 250, 300],
+        backgroundColor: 'rgba(66,165,245,0.3)',
+        borderRadius: 6,
+        hidden: true,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: true, position: 'top' } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f0f0f0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 8. IP联名类型
+new Chart(document.getElementById('chartIP'), {
+  type: 'doughnut',
+  data: {
+    labels: ['游戏IP', '动漫IP', '潮玩IP', '影视IP', '文学IP', '其他'],
+    datasets: [{
+      data: [52, 48, 42, 28, 18, 22],
+      backgroundColor: ['#1e88e5','#43a047','#ff9800','#e53935','#8e24aa','#90caf9'],
+      borderWidth: 2,
+      borderColor: '#fff',
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'right', labels: { padding: 10 } },
+    }
+  }
+});
+
+// 9. 新茶饮出海
+new Chart(document.getElementById('chartTeaGo'), {
+  type: 'bar',
+  data: {
+    labels: ['蜜雪冰城', '霸王茶姬', '喜茶', '奈雪的茶'],
+    datasets: [{
+      label: '海外门店数',
+      data: [4000, 350, 100, 30],
+      backgroundColor: ['#c62828','#ff9800','#43a047','#1e88e5'],
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f0f0f0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 10. 亚太乳制品市场
+new Chart(document.getElementById('chartAsiaDairy'), {
+  type: 'line',
+  data: {
+    labels: ['2024', '2025', '2026', '2028', '2031'],
+    datasets: [{
+      label: '市场规模',
+      data: [1793, 1884, 1975, 2167, 2498],
+      borderColor: '#00897b',
+      backgroundColor: 'rgba(0,137,123,0.08)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 4,
+      pointBackgroundColor: '#00897b',
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: false, grid: { color: '#f0f0f0' }, ticks: { callback: v => v } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const id = this.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const navH = document.querySelector('.top-nav').offsetHeight;
+      window.scrollTo({ top: el.offsetTop - navH - 16, behavior: 'smooth' });
+    }
+    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Active nav on scroll
+const sections = ['summary','market','products','trends','tech','marketing','global','insights'];
+window.addEventListener('scroll', () => {
+  const navH = document.querySelector('.top-nav').offsetHeight + 20;
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop - navH <= window.scrollY) current = id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>

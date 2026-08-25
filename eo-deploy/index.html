@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乳饮周报 · 行业市场动态追踪</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAV BAR ===== */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(30,58,95,0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    gap: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .top-nav .nav-brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: none;
+  }
+  .top-nav .nav-brand .brand-icon {
+    font-size: 20px;
+  }
+  .top-nav .nav-links {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+  }
+  .top-nav .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    border-bottom: none;
+  }
+  .top-nav .nav-links a:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  .wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d6a9f 40%, #4a90d9 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    color: #fff;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 20%;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 15px;
+    opacity: 0.85;
+    font-weight: 300;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    position: relative;
+  }
+  .hero-stats .stat {
+    text-align: left;
+  }
+  .hero-stats .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+  }
+  .hero-stats .stat-label {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3a5f;
+  }
+  .section-header .section-line {
+    flex: 1;
+    height: 1px;
+    background: #dde3eb;
+  }
+
+  /* ===== REPORT CARDS ===== */
+  .report-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .report-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .report-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .report-card .issue-badge {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1e3a5f, #2d6a9f);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .issue-badge .issue-num {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    line-height: 1;
+  }
+  .issue-badge .issue-label {
+    font-size: 9px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .report-card .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .card-body .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 4px;
+  }
+  .card-body .card-date {
+    font-size: 12px;
+    color: #888;
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 8px;
+  }
+  .card-body .card-summary {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .card-body .card-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .card-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .card-tag.red { background: #fce4ec; color: #c62828; }
+  .card-tag.orange { background: #fff3e0; color: #e65100; }
+  .card-tag.blue { background: #e8f4fd; color: #1565c0; }
+  .card-tag.green { background: #e8f5e9; color: #2e7d32; }
+  .card-tag.purple { background: #f3e5f5; color: #6a1b9a; }
+  .card-tag.teal { background: #e0f2f1; color: #00695c; }
+  .report-card .card-arrow {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f0f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2d6a9f;
+    font-size: 16px;
+    align-self: center;
+    transition: all 0.2s;
+  }
+  .report-card:hover .card-arrow {
+    background: #2d6a9f;
+    color: #fff;
+  }
+
+  /* ===== DASHBOARD PANEL ===== */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .dash-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .dash-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dash-card h3 .dash-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .dash-card canvas {
+    width: 100% !important;
+    max-height: 200px;
+  }
+  .dash-card .dash-caption {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+  }
+
+  /* ===== QUICK LINKS ===== */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .quick-link {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #eef0f4;
+    transition: all 0.2s;
+    border-bottom: none;
+  }
+  .quick-link:hover {
+    border-color: #2d6a9f;
+    box-shadow: 0 2px 8px rgba(45,106,159,0.12);
+  }
+  .quick-link .ql-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .quick-link .ql-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e3a5f;
+  }
+  .quick-link .ql-desc {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eef0f4;
+  }
+  .site-footer a { color: #999; border-bottom: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+  }
+  @media (max-width: 640px) {
+    .wrapper { padding: 16px; }
+    .hero { padding: 32px 24px; }
+    .hero h1 { font-size: 24px; }
+    .top-nav { padding: 0 16px; }
+    .report-card { flex-direction: column; gap: 12px; }
+    .report-card .card-arrow { display: none; }
+    .quick-links { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="brand-icon">🥛</span> 乳饮周报
+  </a>
+  <div class="nav-links">
+    <a href="#reports">往期报告</a>
+    <a href="#dashboard">数据看板</a>
+    <a href="#topics">关注领域</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>乳饮周报 · 行业市场动态追踪</h1>
+    <div class="tagline">中国市场为主 · 海外趋势为辅 ｜ 每周更新 · 服务产品定义与规划</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">6</div>
+        <div class="stat-label">已发布周报</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">已发布月报</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">104</div>
+        <div class="stat-label">累计信源</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">6</div>
+        <div class="stat-label">覆盖模块</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">26</div>
+        <div class="stat-label">图表数</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="quick-links" id="topics">
+    <a href="weekly-scan-006.html" class="quick-link">
+      <div class="ql-icon">📊</div>
+      <div class="ql-title">市场动态</div>
+      <div class="ql-desc">奶价拐点·茶饮酒</div>
+    </a>
+    <a href="weekly-scan-006.html" class="quick-link">
+      <div class="ql-icon">🔥</div>
+      <div class="ql-title">趋势热点</div>
+      <div class="ql-desc">真AI牛奶·冰能量</div>
+    </a>
+    <a href="weekly-scan-006.html" class="quick-link">
+      <div class="ql-icon">⚖️</div>
+      <div class="ql-title">政策监管</div>
+      <div class="ql-desc">固体饮料新标·准运证</div>
+    </a>
+    <a href="weekly-scan-006.html" class="quick-link">
+      <div class="ql-icon">🔬</div>
+      <div class="ql-title">技术创新</div>
+      <div class="ql-desc">AI研发·乳清蛋白国产化</div>
+    </a>
+    <a href="weekly-scan-006.html" class="quick-link">
+      <div class="ql-icon">🎯</div>
+      <div class="ql-title">竞品动态</div>
+      <div class="ql-desc">东鹏H1·换帅潮·香飘飘</div>
+    </a>
+    <a href="monthly-report-003.html" class="quick-link">
+      <div class="ql-icon">🌍</div>
+      <div class="ql-title">7月月报</div>
+      <div class="ql-desc">全景复盘·品牌矩阵</div>
+    </a>
+  </div>
+
+  <!-- REPORT LIST -->
+  <div id="reports">
+    <div class="section-header">
+      <h2>📋 往期报告</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="report-grid">
+      <a href="weekly-scan-006.html" class="report-card" style="border-left: 4px solid #1e88e5;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#1e88e5,#42a5f5);">
+          <div class="issue-num">006</div>
+          <div class="issue-label">期 · NEW</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-07-31 · 7月第5周（7.25—7.31）</div>
+          <div class="card-summary">合同奶价3.06元/kg同比+1%首次转正、奶价拐点确立；优然牧业H1预盈7-9亿元、三年首盈；东鹏H1净利+20.72%、茶饮料+208.99%爆发；茶颜悦色进广州、新茶饮增速5.7%；固体饮料新标GB/T29602-2026实施、液态食品运输准运证7.1落地；伊利WAIC真AI牛奶、元气森林冰能量</div>
+          <div class="card-tags">
+            <span class="card-tag red">奶价拐点</span>
+            <span class="card-tag orange">茶饮酒爆发</span>
+            <span class="card-tag blue">东鹏H1</span>
+            <span class="card-tag green">新标实施</span>
+            <span class="card-tag purple">真AI牛奶</span>
+            <span class="card-tag teal">乳业换帅</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="monthly-report-003.html" class="report-card" style="border-left: 4px solid #c62828;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#c62828,#e53935);">
+          <div class="issue-num">003</div>
+          <div class="issue-label">月报 · NEW</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">📅 乳制品·饮料行业月度报告（2026年7月）</div>
+          <div class="card-date">2026-07-31 · 7月整月深度复盘</div>
+          <div class="card-summary">合同奶价3.06元/kg同比+1%首次转正、奶价拐点确认；优然/澳亚/现代牧业集体扭亏、产业链利润重塑；茶饮酒现象级爆发200吨出货、冰淇淋60-68%毛利率；药食同源+54.7%；新茶饮增速5.7%进入"5时代"；蒙牛伊利差距扩至337亿；含Tab切换+17品牌矩阵+场景图谱+4图表</div>
+          <div class="card-tags">
+            <span class="card-tag red">7月全景</span>
+            <span class="card-tag orange">奶价拐点</span>
+            <span class="card-tag blue">牧业扭亏</span>
+            <span class="card-tag green">茶饮酒</span>
+            <span class="card-tag purple">双雄差距</span>
+            <span class="card-tag teal">品牌矩阵</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="weekly-scan-005.html" class="report-card" style="border-left: 4px solid #1e88e5;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#1e88e5,#42a5f5);">
+          <div class="issue-num">005</div>
+          <div class="issue-label">期 · NEW</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-07-17 · 7月第3周（7.10—7.17）</div>
+          <div class="card-summary">伊利12亿港元增持优然牧业、蒙牛20亿港元收购中国圣牧，奶源争夺全面升级；原奶价格触底回暖，李胜利称"2026年拐点之年"；澳优牵手荷兰A-ware加速羊奶酪全球化；柠檬奶现象级爆发、GABA适应原茶饮+300%；乳清蛋白价格翻倍，乳企集体转向蛋白深加工赛道</div>
+          <div class="card-tags">
+            <span class="card-tag red">奶源争夺</span>
+            <span class="card-tag orange">柠檬奶爆红</span>
+            <span class="card-tag blue">原奶拐点</span>
+            <span class="card-tag green">蛋白翻倍</span>
+            <span class="card-tag purple">羊奶酪</span>
+            <span class="card-tag teal">零售新政</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="weekly-scan-004.html" class="report-card" style="border-left: 4px solid #1e88e5;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#1e88e5,#42a5f5);">
+          <div class="issue-num">004</div>
+          <div class="issue-label">期</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-07-10 · 7月第2周（7.4—7.10）</div>
+          <div class="card-summary">饮料Q2线下零售同比下滑11.78%，从"抢货架"转向"抢场景"；2026奶业创新发展大会在南昌召开，蒙牛发布"一体两翼"战略；伊利签约五支国家队、妙可蓝多成为世界杯官方奶酪；头部品牌掀起建厂潮，农夫山泉、东鹏、元气森林、果子熟了加码供应链</div>
+          <div class="card-tags">
+            <span class="card-tag red">Q2零售下滑</span>
+            <span class="card-tag orange">无糖茶增长</span>
+            <span class="card-tag blue">奶业大会</span>
+            <span class="card-tag green">世界杯营销</span>
+            <span class="card-tag purple">建厂潮</span>
+            <span class="card-tag teal">AI造谣警示</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="monthly-report-002.html" class="report-card" style="border-left: 4px solid #c62828;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#c62828,#e53935);">
+          <div class="issue-num">002</div>
+          <div class="issue-label">月报</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">📅 乳制品·饮料行业月度报告（2026年6月）</div>
+          <div class="card-date">2026-06-26 · 6月整月深度复盘</div>
+          <div class="card-summary">达能约95亿收购MADE集团锚定蛋白赛道；蒙牛M-PLUS打破高蛋白"不可能三角"；英敏特《2026中国消费者》宣告行业从"品类竞争"转向"时刻争夺战"；新茶饮头部集体跨界瓶装饮料；7家乳企排队IPO。含Tab切换+品牌矩阵+场景图谱+趋势线图</div>
+          <div class="card-tags">
+            <span class="card-tag red">6月全景</span>
+            <span class="card-tag orange">达能收购</span>
+            <span class="card-tag blue">蒙牛M-PLUS</span>
+            <span class="card-tag green">英敏特</span>
+            <span class="card-tag purple">茶饮跨界</span>
+            <span class="card-tag teal">IPO潮</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="weekly-scan-003.html" class="report-card">
+        <div class="issue-badge">
+          <div class="issue-num">003</div>
+          <div class="issue-label">期</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-07-03 · 7月第1周（6.27—7.3）</div>
+          <div class="card-summary">2026奶商指数发布：达标率38.0%日均273克；电解质水30+品牌混战200亿赛道；娃哈哈怡宝PET成本推动涨价；a2营收81亿创新高收购蒙牛工厂；天丝红牛结束普盛独家代理全面直营；东鹏饮料AI造谣风波市值蒸发70亿后辟谣反弹</div>
+          <div class="card-tags">
+            <span class="card-tag red">奶商指数</span>
+            <span class="card-tag orange">电解质水大战</span>
+            <span class="card-tag blue">娃哈哈涨价</span>
+            <span class="card-tag green">a2收购蒙牛</span>
+            <span class="card-tag purple">天丝红牛变局</span>
+            <span class="card-tag teal">AI造谣风波</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="weekly-scan-002.html" class="report-card">
+        <div class="issue-badge">
+          <div class="issue-num">002</div>
+          <div class="issue-label">期</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-06-26 · 6月第4周（6.19—6.26）</div>
+          <div class="card-summary">达能约95亿元收购澳洲MADE集团加码蛋白赛道；英敏特《2026中国消费者》发布，食品饮料从"品类竞争"转向"时刻争夺战"；庄园牧场涨停+妙可蓝多涨停，饮料乳品板块热度升温；蒙牛冰+世界杯限定新品落地</div>
+          <div class="card-tags">
+            <span class="card-tag red">达能收购</span>
+            <span class="card-tag orange">场景竞争</span>
+            <span class="card-tag blue">英敏特</span>
+            <span class="card-tag green">板块升温</span>
+            <span class="card-tag purple">世界杯IP</span>
+            <span class="card-tag teal">蛋白革命</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="monthly-report-001.html" class="report-card" style="border-left: 4px solid #c62828;">
+        <div class="issue-badge" style="background: linear-gradient(135deg,#c62828,#e53935);">
+          <div class="issue-num">001</div>
+          <div class="issue-label">月报</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">📅 乳制品·饮料行业月度报告（2026年5月）</div>
+          <div class="card-date">2026-06-08 · 5月全月深度复盘</div>
+          <div class="card-summary">月报为周报的升级版，覆盖5月整月行业全景：6大板块全维度展开、伊利2026新品矩阵完整解读、艾媒/益普索/欧睿数据洞察、对标竞品/价格带/场景矩阵，含SVG内联图表+Tab交互+品牌矩阵</div>
+          <div class="card-tags">
+            <span class="card-tag red">5月全景</span>
+            <span class="card-tag orange">伊利新品</span>
+            <span class="card-tag blue">数据洞察</span>
+            <span class="card-tag green">竞品对标</span>
+            <span class="card-tag purple">场景矩阵</span>
+            <span class="card-tag teal">SVG图表</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="weekly-scan-001.html" class="report-card">
+        <div class="issue-badge">
+          <div class="issue-num">001</div>
+          <div class="issue-label">期</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">乳制品·饮料行业市场动态</div>
+          <div class="card-date">2026-06-01 · 6月第1周（5.26—6.1）</div>
+          <div class="card-summary">原奶触底+政策底信号明确；功能水"诸神之战"全面开打；伊利/蒙牛同步押注透明蛋白水；元气森林糙米乳双料冠军；HMO国产替代加速；渠道变革深化传统商超降至35%以下</div>
+          <div class="card-tags">
+            <span class="card-tag red">原奶触底</span>
+            <span class="card-tag orange">功能水大战</span>
+            <span class="card-tag blue">蛋白水</span>
+            <span class="card-tag green">米乳黑马</span>
+            <span class="card-tag purple">HMO替代</span>
+            <span class="card-tag teal">渠道变革</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard">
+    <div class="section-header">
+      <h2>📈 数据看板</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="dashboard">
+      <div class="dash-card">
+        <h3><span class="dash-icon" style="background:#e8f4fd;color:#1976d2;">📊</span> 功能饮料细分市场</h3>
+        <canvas id="dashFuncBev"></canvas>
+        <div class="dash-caption">2025年中国功能饮料市场规模 1665亿元</div>
+      </div>
+      <div class="dash-card">
+        <h3><span class="dash-icon" style="background:#fce4ec;color:#c62828;">🔥</span> 低度酒市场增长</h3>
+        <canvas id="dashLowAlcohol"></canvas>
+        <div class="dash-caption">2020-2024 CAGR 30%</div>
+      </div>
+      <div class="dash-card">
+        <h3><span class="dash-icon" style="background:#e0f2f1;color:#00695c;">🌍</span> 新茶饮出海门店</h3>
+        <canvas id="dashTeaGo"></canvas>
+        <div class="dash-caption">蜜雪冰城海外门店超4000家</div>
+      </div>
+      <div class="dash-card">
+        <h3><span class="dash-icon" style="background:#fff3e0;color:#e65100;">🔬</span> HMO原料价格走势</h3>
+        <canvas id="dashHMO"></canvas>
+        <div class="dash-caption">国产产能释放推动下行通道</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <p>乳饮周报 · 乳制品与饮料行业市场动态追踪</p>
+    <p style="margin-top:4px;">本报告由 AI 深度研究团队生成，重要决策请经专业人员核验。</p>
+  </div>
+
+</div>
+
+<script>
+Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#666';
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+
+// Dashboard: 功能饮料细分
+new Chart(document.getElementById('dashFuncBev'), {
+  type: 'doughnut',
+  data: {
+    labels: ['能量饮料', '电解质水', '蛋白饮料', '中式养生水', '其他'],
+    datasets: [{
+      data: [680, 200, 310, 120, 355],
+      backgroundColor: ['#1e88e5','#42a5f5','#ff9800','#ef5350','#90caf9'],
+      borderWidth: 2, borderColor: '#fff',
+    }]
+  },
+  options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { padding: 8 } } } }
+});
+
+// Dashboard: 低度酒
+new Chart(document.getElementById('dashLowAlcohol'), {
+  type: 'bar',
+  data: {
+    labels: ['2020','2021','2022','2023','2024'],
+    datasets: [{ data: [200,280,370,460,570], backgroundColor: ['#ef9a9a','#e57373','#ef5350','#e53935','#c62828'], borderRadius: 6 }]
+  },
+  options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: '#f0f0f0' } }, x: { grid: { display: false } } } }
+});
+
+// Dashboard: 茶饮出海
+new Chart(document.getElementById('dashTeaGo'), {
+  type: 'bar',
+  data: {
+    labels: ['蜜雪冰城','霸王茶姬','喜茶','奈雪'],
+    datasets: [{ data: [4000,350,100,30], backgroundColor: ['#c62828','#ff9800','#43a047','#1e88e5'], borderRadius: 6 }]
+  },
+  options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: '#f0f0f0' } }, x: { grid: { display: false } } } }
+});
+
+// Dashboard: HMO
+new Chart(document.getElementById('dashHMO'), {
+  type: 'line',
+  data: {
+    labels: ['2024','2025','2026E','2027E','2028E'],
+    datasets: [{ data: [65,55,45,35,28], borderColor: '#e65100', backgroundColor: 'rgba(230,81,0,0.08)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#e65100' }]
+  },
+  options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, grid: { color: '#f0f0f0' }, ticks: { callback: v => v + '万' } }, x: { grid: { display: false } } } }
+});
+</script>
+
+</body>
+</html>

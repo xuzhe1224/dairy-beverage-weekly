@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乳制品饮料行业周报 第005期 | 2026年7月第3周</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f2f5; color: #1a1a2e; line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .top-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(30,58,95,0.97); backdrop-filter: blur(10px);
+    padding: 0 32px; display: flex; align-items: center; height: 52px; gap: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .top-nav .nav-brand { font-size: 16px; font-weight: 700; color: #fff; text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+  .top-nav .nav-links { display: flex; gap: 4px; margin-left: auto; }
+  .top-nav .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; padding: 6px 14px; border-radius: 6px; white-space: nowrap; transition: all 0.15s; }
+  .top-nav .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+  .wrapper { max-width: 1080px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a2d42 0%, #2a5a8f 50%, #3d7ec5 100%);
+    border-radius: 16px; padding: 48px 44px; color: #fff; margin-bottom: 32px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:260px; height:260px; background:rgba(255,255,255,0.06); border-radius:50%; }
+  .hero::after { content:''; position:absolute; bottom:-80px; right:18%; width:320px; height:320px; background:rgba(255,255,255,0.04); border-radius:50%; }
+  .hero-top { display:flex; justify-content:space-between; align-items:flex-start; position:relative; margin-bottom:12px; }
+  .hero h1 { font-size:30px; font-weight:700; letter-spacing:-0.5px; position:relative; }
+  .hero .issue-badge { background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.3); border-radius:8px; padding:6px 16px; font-size:13px; font-weight:500; white-space:nowrap; }
+  .hero .subtitle { font-size:14px; opacity:0.82; font-weight:300; margin-bottom:24px; position:relative; }
+  .hero-stats { display:flex; gap:44px; position:relative; flex-wrap:wrap; }
+  .hero-stats .stat { text-align:left; }
+  .hero-stats .stat-value { font-size:26px; font-weight:700; font-family:'DM Mono',monospace; }
+  .hero-stats .stat-label { font-size:12px; opacity:0.7; margin-top:2px; }
+
+  /* ===== KEY METRICS RIBBON ===== */
+  .metrics-ribbon { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:32px; }
+  .metric-card { background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); text-align:center; border-top:3px solid transparent; }
+  .metric-card.m1 { border-top-color:#e74c3c; }
+  .metric-card.m2 { border-top-color:#2ecc71; }
+  .metric-card.m3 { border-top-color:#3498db; }
+  .metric-card.m4 { border-top-color:#f39c12; }
+  .metric-card .mc-value { font-size:24px; font-weight:700; font-family:'DM Mono',monospace; margin-bottom:4px; }
+  .metric-card .mc-label { font-size:12px; color:#7f8c8d; font-weight:400; }
+  .metric-card .mc-change { font-size:12px; font-weight:600; margin-top:4px; }
+  .mc-up { color:#27ae60; }
+  .mc-down { color:#e74c3c; }
+
+  /* ===== SECTION ===== */
+  .section { background:#fff; border-radius:14px; padding:28px 32px; margin-bottom:22px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+  .section-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .section-icon { font-size:22px; }
+  .section-header h2 { font-size:19px; font-weight:600; color:#1e3a5f; }
+  .section-header .section-tag { font-size:11px; background:#f0f4ff; color:#3d7ec5; padding:3px 10px; border-radius:20px; font-weight:500; }
+
+  .story-block { margin-bottom:22px; padding-bottom:20px; border-bottom:1px solid #eef1f5; }
+  .story-block:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+  .story-title { font-size:16px; font-weight:600; color:#1e3a5f; margin-bottom:6px; display:flex; align-items:center; gap:10px; }
+  .story-tag { font-size:11px; padding:2px 8px; border-radius:4px; font-weight:500; white-space:nowrap; }
+  .story-tag.breaking { background:#ffe0e0; color:#c0392b; }
+  .story-tag.trend { background:#e0f0ff; color:#2471a3; }
+  .story-tag.data { background:#e8f8e8; color:#27ae60; }
+  .story-tag.policy { background:#fff3e0; color:#e67e22; }
+  .story-body { font-size:14px; color:#444; line-height:1.8; }
+  .story-body a { color:#2980b9; text-decoration:none; font-weight:500; }
+  .story-body a:hover { text-decoration:underline; }
+  .story-body .highlight { background:linear-gradient(180deg,transparent 60%, #ffeaa7 60%); }
+
+  /* ===== INSIGHT BOX ===== */
+  .insight-box { background:linear-gradient(135deg,#f8fbff,#edf4ff); border-left:4px solid #3d7ec5; border-radius:8px; padding:16px 20px; margin:16px 0; font-size:13px; color:#3a4a5c; }
+
+  /* ===== GRID 2 COL ===== */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:12px 0; }
+  @media(max-width:700px){ .grid-2{grid-template-columns:1fr;} }
+
+  /* ===== CHART CARD ===== */
+  .chart-card { background:#fafbfc; border-radius:10px; padding:20px; margin:16px 0; border:1px solid #e8ecf1; }
+  .chart-card h4 { font-size:13px; color:#7f8c8d; font-weight:500; margin-bottom:10px; }
+
+  /* ===== TABS ===== */
+  .tab-bar { display:flex; gap:4px; margin-bottom:16px; border-bottom:2px solid #eef1f5; }
+  .tab-btn { padding:8px 18px; font-size:13px; font-weight:500; cursor:pointer; border:none; background:none; color:#95a5a6; border-bottom:2px solid transparent; margin-bottom:-2px; transition:all 0.2s; }
+  .tab-btn.active { color:#1e3a5f; border-bottom-color:#3d7ec5; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+
+  /* ===== TAG CLOUD ===== */
+  .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+  .tag-item { font-size:12px; padding:4px 12px; border-radius:20px; background:#f0f4ff; color:#3d7ec5; font-weight:500; }
+
+  /* ===== FOOTER ===== */
+  .footer-bar { background:#fff; border-radius:12px; padding:20px 28px; margin-top:28px; text-align:center; font-size:12px; color:#95a5a6; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+  .footer-bar p { margin:4px 0; }
+
+  /* ===== COMPARISON BOX ===== */
+  .comp-box { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0; }
+  .comp-item { background:#f8fafb; border-radius:8px; padding:14px 16px; border:1px solid #e8ecf1; }
+  .comp-item h5 { font-size:13px; color:#1e3a5f; margin-bottom:6px; }
+  .comp-item p { font-size:12px; color:#666; line-height:1.6; }
+  @media(max-width:700px){ .comp-box{grid-template-columns:1fr;} }
+
+  .inline-svg-chart { width:100%; max-width:600px; margin:0 auto; display:block; }
+  hr.divider { border:none; border-top:1px solid #eef1f5; margin:16px 0; }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html" class="nav-brand" style="border-bottom:none;color:#fff;text-decoration:none;">🥛 乳饮周报</a>
+  <div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="weekly-scan-005.html" style="background:rgba(255,255,255,0.15);color:#fff;">本期周报</a>
+    <a href="monthly-report-002.html">6月月报</a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-top">
+    <h1>🥛 乳制品饮料行业周报</h1>
+    <div class="issue-badge">第 005 期</div>
+  </div>
+  <div class="subtitle">📅 2026年7月第3周（7.10 — 7.17）| 覆盖乳制品 · 饮料 · 消费趋势 · 政策技术</div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-value">11.73亿</div><div class="stat-label">伊利增持优然牧业（港元）</div></div>
+    <div class="stat"><div class="stat-value">3.03</div><div class="stat-label">6月下旬原料奶均价（元/公斤）</div></div>
+    <div class="stat"><div class="stat-value">+300%</div><div class="stat-label">GABA适应原茶饮新品增速</div></div>
+    <div class="stat"><div class="stat-value">387亿</div><div class="stat-label">2026年蛋白粉市场规模（元）</div></div>
+  </div>
+</div>
+
+<!-- ===== KEY METRICS ===== -->
+<div class="metrics-ribbon">
+  <div class="metric-card m1">
+    <div class="mc-value">+1.1%</div>
+    <div class="mc-label">乳品板块周涨幅</div>
+    <div class="mc-change mc-up">▲ 跑赢沪深300</div>
+  </div>
+  <div class="metric-card m2">
+    <div class="mc-value">3.30</div>
+    <div class="mc-label">散奶收购价（元/kg）</div>
+    <div class="mc-change mc-up">▲ 从2.50上涨</div>
+  </div>
+  <div class="metric-card m3">
+    <div class="mc-value">+28.7%</div>
+    <div class="mc-label">妙可蓝多H1营收增速</div>
+    <div class="mc-change mc-up">▲ 奶酪赛道领涨</div>
+  </div>
+  <div class="metric-card m4">
+    <div class="mc-value">+100%</div>
+    <div class="mc-label">乳清蛋白价格涨幅</div>
+    <div class="mc-change mc-up">▲ WPC80/WPI90</div>
+  </div>
+</div>
+
+<!-- ===== 板块1：市场动态 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <h2>一、市场动态</h2>
+    <span class="section-tag">头部博弈·上游整合</span>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag breaking">重磅</span>
+      伊利12亿港元增持优然牧业，蒙牛20亿港元收购中国圣牧
+    </div>
+    <div class="story-body">
+      <p>本周，乳业两大巨头<span class="highlight">几乎同步完成上游奶源关键布局</span>，行业竞争重心正式从终端价格战转向奶源端的资产争夺。</p>
+      <p><strong>伊利方面：</strong>6月30日公告显示，伊利通过境外全资子公司博源投资控股认购优然牧业新发行股份2.99亿股，认购价格3.92港元/股，总价达<span class="highlight">11.73亿港元</span>。交易完成后，伊利持有优然牧业股权升至<strong>36.07%</strong>，坐稳第一大股东席位。优然牧业在全国运营100座现代化牧场，奶牛存栏约62万头，半年产出约208万吨原料奶。此外，双方已锁定2027-2029三年购销框架协议，每年不少于70%原奶产能优先供应伊利，3年累计规模预计突破<strong>700亿元</strong>。股权锁权叠加长协锁量的双重布局，为伊利高端乳品和低温鲜奶业务筑牢供应链根基。（<a href="https://new.qq.com/rain/a/20260710A0CWP600" target="_blank">腾讯新闻</a>）</p>
+      <p><strong>蒙牛方面：</strong>蒙牛联合现代牧业推进对中国圣牧的全面要约收购，合计持股<strong>31.26%</strong>，触发港交所全面要约规则，交易最高规模可达<strong>20.16亿港元</strong>。交易完成后两家企业奶牛存栏超61万头，年原奶产能突破400万吨，更凭借中国圣牧独有的<strong>沙漠有机稀缺奶源</strong>，补齐高端有机奶源短板。（<a href="https://www.163.com/dy/article/L1BHP2Q305568W0A.html" target="_blank">网易/奶牛微看</a>）</p>
+      <p>独立乳业分析师宋亮指出：<em>"这是头部乳企逆势加仓上游奶源的核心逻辑——通过资本绑定核心牧场，既能规避后续奶源紧缺的经营风险，也能在新周期中掌握原料定价权。"</em></p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag data">拐点</span>
+      原奶价格现回暖迹象，李胜利：2026年行业触底拐点之年
+    </div>
+    <div class="story-body">
+      <p>在第十七届中国奶业大会上，国家奶牛产业技术体系首席科学家李胜利给出乐观判断：<span class="highlight">"2026年应该是行业触底和拐点之年"</span>。近期河北等地乳企生鲜乳收购价小幅上涨，散奶价格由2.5元/公斤升至<strong>3.3元/公斤</strong>，山东原奶收购价连续5周企稳。成母牛数量持续下降、高温致奶牛热应激产奶效率下滑、奶粉库存基本消化完毕，供需天平正在反转。（<a href="https://www.sina.cn/media/2392283914" target="_blank">乳业时报</a>）</p>
+      <p>但蒙牛总裁高飞也提醒：<em>"当前企稳只是阶段性修复，品类多元不足、供需均衡性矛盾、产业链韧性不足三大矛盾尚未根本破解。"</em>（<a href="https://www.163.com/dy/article/L1O1FCLE0519DDQ2.html" target="_blank">第一财经</a>）</p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag breaking">出海</span>
+      澳优乳业牵手荷兰A-ware，加速羊奶酪全球布局
+    </div>
+    <div class="story-body">
+      <p>7月14日，澳优乳业宣布旗下荷兰子公司Amalthea向欧洲奶酪巨头<strong>A-ware</strong>出让35%股份，澳优以65%持股保持控股。未来十年，Amalthea负责羊奶酪生产和乳清蛋白加工，A-ware利用全球销售体系独家推广。2025年澳优羊奶酪业务收入<strong>10.06亿元</strong>，2026年全球奶酪市场规模达2272亿美元，预测2026-2033年复合增长率5.8%。（<a href="https://www.toutiao.com/article/7662683556870701618" target="_blank">北青网</a>）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 板块2：消费趋势 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🎯</span>
+    <h2>二、消费趋势</h2>
+    <span class="section-tag">健康化·情绪化·功能化</span>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag trend">爆品</span>
+      柠檬奶杀疯了：从湖州小城到头部品牌集体入局
+    </div>
+    <div class="story-body">
+      <p>一杯来自浙江湖州的地方饮品，成为2026年茶饮界最大黑马。抖音#柠檬奶话题播放量超<strong>1.1亿次</strong>。霸王茶姬推出"糯青山柠檬奶"和"雾红尘柠檬奶"（轻因产品），喜茶、茶百道、沪上阿姨、柠季、茉酸奶等头部品牌先后入局，多数定价<strong>15-20元</strong>区间。爷爷不泡茶"兰香青柠"累计销量突破<strong>1000万杯</strong>。柠檬奶专门品牌春柠香香已开/待开门店约13家，刚开出北京首店入驻朝阳合生汇。（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_8166a561bbf25552" target="_blank">餐饮老板内参</a>）</p>
+      <p>柠檬风味饮品2023年市场规模已突破<strong>200亿元</strong>，预计2029年突破500亿元。2025年茶饮品牌使用柠檬的上新共379款，柠檬连续多年稳坐水果使用频次榜首。但柠檬奶面临的"遇酸起絮"技术难题仍需行业持续攻克。</p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag trend">新范式</span>
+      从解渴到疗愈：GABA茶饮新品上市量同比增长超300%
+    </div>
+    <div class="story-body">
+      <p>2026年上半年，含有γ-氨基丁酸（GABA）、南非醉茄等<strong>适应原成分</strong>的茶饮新品上市量同比增长超300%。以"茶萃吧"为代表的新锐品牌联合高校实验室推出"晚安萃"系列，主打"15分钟情绪离线"概念，标志着茶饮研发从"风味拼配"转向<strong>"神经科学×草本学"</strong>的交叉应用。（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_0576a55f1cc35752" target="_blank">腾讯新闻</a>）</p>
+      <p>门店空间也在迭代——茶萃吧落地"疗愈舱"主题门店：低照度灯光、定制白噪音、天然茶香香氛系统，部分门店引入生物反馈设备，顾客可通过心率变异性测试获得个性化茶饮推荐。行业进入<strong>"情绪功能化"深水区</strong>。</p>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>💡 趋势洞察：</strong>2026中国食品饮料趋势报告显示，69%的消费者选购食品饮料时优先考虑产品是否契合自身健康状态；58%喜欢购买有科学认证功能的产品；减糖/0糖仍是主流（45%增加购买），低GI产品增速惊人（28%增加购买），高蛋白（33%）和药食同源（26%）增幅强劲。乳制品品类成为精准营养需求释放的主阵地。（<a href="https://www.hanghangsou.com/%e6%8a%a5%e5%91%8a/19982.html" target="_blank">行业趋势报告</a>）
+  </div>
+</div>
+
+<!-- ===== 板块3：政策监管 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📜</span>
+    <h2>三、政策监管</h2>
+    <span class="section-tag">零售新政·标签新规</span>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag policy">利好</span>
+      商务部等9部门印发零售业创新发展意见
+    </div>
+    <div class="story-body">
+      <p>7月9日，商务部等9部门联合印发《关于加快零售业创新发展的意见》，从渠道端为食品饮料板块带来系统性利好：一刻钟便民生活圈扩围、县域商业"千集万店"改造，补齐社区和下沉市场终端缺口；鼓励全渠道即时零售发展；重点整治线上电商虚假促销、价格乱象，禁止平台强制商户承担补贴——这将有效稳定品牌价盘，减少窜货与恶性价格战。（<a href="https://stock.hexun.com/2026-07-12/224612443.html" target="_blank">开源证券/和讯</a>）</p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag policy">新规</span>
+      中国台湾地区鲜乳标章新制7月1日上路：有标章才能叫"鲜乳"
+    </div>
+    <div class="story-body">
+      <p>7月1日起，台湾地区正式实施新版乳品标示制度，只有取得农业部门核发"鲜乳标章"或通过农产品验证者，才能标示为"鲜乳"。未依规定标示最高可处<strong>400万元新台币</strong>罚锾。此举旨在强化国产鲜乳辨识度与消费者知情权，为大陆乳品标识别体系改革提供参考。（<a href="https://www.foodnext.net/news/newssafe/paper/6731176755" target="_blank">食力foodNEXT</a>）</p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag policy">标准</span>
+      GB 7718新国标过渡期至2027年3月，标签透明化大幕拉开
+    </div>
+    <div class="story-body">
+      <p>市场监管总局《预包装食品标签通则》（GB7718-2025）与《营养标签通则》（GB28050-2025）已于2025年12月1日正式实施，过渡期至<strong>2027年3月16日</strong>。新规要求强制标注生产日期和保质期到期日"双日期"，采用永久性工艺禁止加贴修改，这将推动乳制品行业全链条标签透明化升级。（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_0876943c49a67852" target="_blank">市场监管总局</a>）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 板块4：技术创新 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔬</span>
+    <h2>四、技术创新</h2>
+    <span class="section-tag">蛋白深加工·原料自主</span>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag breaking">聚焦</span>
+      蛋白翻倍还得抢：乳企集体转向功能蛋白赛道
+    </div>
+    <div class="story-body">
+      <p>与液奶市场低迷形成鲜明对比，功能蛋白赛道炙手可热。受高蛋白饮食风潮和GLP-1类减重药需求驱动，全球<strong>WPC80浓缩乳清蛋白和WPI90分离乳清蛋白</strong>售价涨幅均超100%，短期内产能难以快速扩大。（<a href="https://www.163.com/dy/article/L1O1FCLE0519DDQ2.html" target="_blank">第一财经</a>）</p>
+      <p>国内乳企加速布局：<strong>飞鹤</strong>在黑龙江、内蒙古、宁夏建设深加工基地，预计8月投产后日处理能力达3000吨，3-5年内提升至1万-1.5万吨；<strong>伊利</strong>投建奶酪智造标杆基地三期项目；<strong>蒙牛</strong>成立"奶立方"事业部，推出原料品牌"MnmpX"；<strong>妙可蓝多</strong>H1营收33亿元（+28.7%），从零食转向全龄营养体系。2026年国内蛋白粉市场规模突破<strong>387亿元</strong>，同比增长17.99%。（<a href="https://www.163.com/dy/article/L17JDC6V0514HDQI.html" target="_blank">Foodaily</a>）</p>
+    </div>
+  </div>
+
+  <div class="comp-box">
+    <div class="comp-item">
+      <h5>🔴 液态奶困局</h5>
+      <p>液态奶占乳制品总产量92.7%，常温奶超75%；奶酪、黄油等深加工品合计仅7.3%（欧盟68%、美国45%）；Q1常温纯牛奶和酸奶销售额同比下降3.1%和5.9%</p>
+    </div>
+    <div class="comp-item">
+      <h5>🟢 蛋白新赛道</h5>
+      <p>2025年奶酪需求量42万吨（+16.7%）；伊利/飞鹤/蒙牛/妙可蓝多集体加码乳清蛋白、乳铁蛋白、酪蛋白国产化；从"卖原奶"转向"卖蛋白原料"</p>
+    </div>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">
+      <span class="story-tag trend">前沿</span>
+      Foodaily论坛揭示乳品创新三大方向：甜点化、液态蛋白、奶酪本土化
+    </div>
+    <div class="story-body">
+      <p>2026 Foodaily创新博览会乳制品论坛上，19位行业大咖聚焦乳品从标准化商品转向<strong>场景化营养</strong>的解决方案。三大潜力赛道：<strong>乳品甜点化</strong>（从喝奶到吃奶，口味驱动场景占63%）、<strong>液态蛋白</strong>（从健身圈层走向大众，中国市场正经历从粉剂到液态的转变）、<strong>奶酪本土化</strong>（从儿童零食到中餐桌上的"新食材"，奶酪中餐化是必由之路）。论坛同时披露，江南大学团队通过酪蛋白五重改造路径攻克消化慢痛点，中国飞鹤提出"原料解决方案+共创服务"模式打造差异化。（<a href="https://www.163.com/dy/article/L17JDC6V0514HDQI.html" target="_blank">Foodaily每日食品</a>）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 板块5：竞品动态 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏢</span>
+    <h2>五、竞品动态</h2>
+    <span class="section-tag">头部品牌·奶业大会</span>
+  </div>
+
+  <div class="story-block">
+    <div class="story-title">新希望乳业：低温逆势双位数增长，Q1净利大增39%</div>
+    <div class="story-body">
+      <p>第十七届奶业大会上，新希望乳业董事长席刚携"鲜立方战略"亮相。2026年Q1，公司营收28.43亿元（+8.31%），净利润1.91亿元（+38.99%），低温鲜奶与低温酸奶为核心增长主力。弗若斯特沙利文报告显示，2024-2025年新希望在前五大乳企中低温液态乳制品零售增速位列第一。公司自主筛选超2100株乳酸菌战略资源库，自研AI订单预测系统，打造"鲜活源"全链路数字化食安平台。（<a href="https://www.163.com/dy/article/L1FOT3S00514DG98.html" target="_blank">网易</a>）</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="story-block" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">
+      <div class="story-title" style="font-size:14px;">卫岗乳业：双A2鲜奶新品亮相</div>
+      <div class="story-body" style="font-size:13px;">
+        <p>百年乳企卫岗重磅推出至淳有机A2β-酪蛋白鲜奶（195mL）和升级版1928南京牛奶厂A2β-酪蛋白鲜奶，采用INF0.09秒瞬时杀菌工艺，补齐高端A2鲜奶矩阵。旗下鲜淳农业同步展出牛初乳益生菌及猫用主食罐，拓展宠物消费领域。（<a href="https://www.toutiao.com/article/7660695673616810536" target="_blank">食安资讯</a>）</p>
+      </div>
+    </div>
+    <div class="story-block" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">
+      <div class="story-title" style="font-size:14px;">雀巢：47亿元泰国建咖啡厂</div>
+      <div class="story-body" style="font-size:13px;">
+        <p>雀巢宣布投资5.63亿瑞郎（约合人民币47亿元）在泰国新建雀巢咖啡生产基地，新厂配备先进现场配送中心，缩短交货时间并优化库存管理。泰国咖啡市场规模约10亿瑞郎。（<a href="https://www.sina.cn/media/2392283914" target="_blank">乳业时报</a>）</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="story-block" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">
+    <div class="story-title">
+      <span class="story-tag trend">饮品</span>
+      喜茶"工艺"全国首店落地广州，柠檬奶+情绪茶饮双线并进
+    </div>
+    <div class="story-body">
+      <p>喜茶"喜茶 工艺"全国首店落地广州石牌桥，首发25款工艺限定新品；新茶饮柠檬奶赛道头部品牌全面入局；"茶萃吧"等新锐以GABA功能茶切入情绪经济；菲诺推出黑麦奶重构健康植物奶标准。甜啦啦7月3日上新黄山毛峰青提系列；柠季北方发力投运北京大仓开启百店同庆。（<a href="https://www.drinknewspaper.com/" target="_blank">饮品报</a>）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 板块6：数据洞察 ===== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <h2>六、数据洞察</h2>
+    <span class="section-tag">行业数据·机构研判</span>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(event,'tab-dairy')">乳制品</button>
+    <button class="tab-btn" onclick="switchTab(event,'tab-beverage')">饮料</button>
+    <button class="tab-btn" onclick="switchTab(event,'tab-consumer')">消费者</button>
+  </div>
+
+  <div id="tab-dairy" class="tab-panel active">
+    <div class="chart-card">
+      <h4>🔹 乳制品行业关键数据速览（7月第3周）</h4>
+    </div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;">
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">原料奶均价（6月下旬）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">3.03元/公斤</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">较2021年高点回落30%+</td></tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #eee;">散奶收购价（近期）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;color:#27ae60;">3.30元/公斤 ↑</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">从2.50反弹，现回暖迹象</td></tr>
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">1-5月乳制品产量</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;color:#27ae60;">+7.0%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">需求端企稳改善</td></tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #eee;">2025年人均消费量</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">41千克</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">低于日韩人均80-90kg</td></tr>
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">妙可蓝多H1营收</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;color:#27ae60;">33亿元（+28.7%）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">奶酪品类快速增长</td></tr>
+      <tr><td style="padding:10px 12px;">蛋白粉市场（2026）</td><td style="padding:10px 12px;font-weight:600;color:#27ae60;">387亿元（+18%）</td><td style="padding:10px 12px;color:#7f8c8d;">增速大幅领先传统保健食品</td></tr>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:#95a5a6;">数据来源：农业农村部、马上赢、华创证券、开源证券、中国营养保健食品协会</div>
+  </div>
+
+  <div id="tab-beverage" class="tab-panel">
+    <div class="chart-card"><h4>🔹 饮料行业关键动态</h4></div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;">
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">柠檬风味饮品（2023）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">200亿元+</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">预计2029年突破500亿</td></tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #eee;">运动饮料趋势</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">健康化·功能细分</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">本土品牌挤压国际品牌</td></tr>
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">5月饮料产量</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;color:#e74c3c;">-4.9%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">全国大范围降雨影响即饮场景</td></tr>
+      <tr><td style="padding:10px 12px;">适应原茶饮新品</td><td style="padding:10px 12px;font-weight:600;color:#27ae60;">+300%</td><td style="padding:10px 12px;color:#7f8c8d;">GABA/南非醉茄等成分快速渗透</td></tr>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:#95a5a6;">数据来源：咖门、中研网、华创证券、腾讯新闻</div>
+  </div>
+
+  <div id="tab-consumer" class="tab-panel">
+    <div class="chart-card"><h4>🔹 消费者洞察（2026食饮趋势报告）</h4></div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;">
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">健康契合优先</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">69%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">选购时优先考虑健康匹配</td></tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #eee;">科学认证偏好</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">58%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">喜欢购买有科学认证功能产品</td></tr>
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;border-bottom:1px solid #eee;">减糖/0糖趋势</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">45%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">过去一年增加购买</td></tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #eee;">高蛋白需求</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-weight:600;">33%</td><td style="padding:10px 12px;border-bottom:1px solid #eee;color:#7f8c8d;">增加高蛋白产品购买</td></tr>
+      <tr style="background:#f8fafb;"><td style="padding:10px 12px;">情绪健康关注</td><td style="padding:10px 12px;font-weight:600;">24%</td><td style="padding:10px 12px;color:#7f8c8d;">增加改善情绪产品购买（女性18-30岁突出）</td></tr>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:#95a5a6;">数据来源：2026中国食品饮料趋势观察报告</div>
+  </div>
+</div>
+
+<!-- ===== SUMMARY ===== -->
+<div class="section" style="background:linear-gradient(135deg,#1a2d42,#2a5a8f);color:#fff;">
+  <div class="section-header">
+    <span class="section-icon">💡</span>
+    <h2 style="color:#fff;">本周核心观点</h2>
+  </div>
+  <div style="font-size:14px;line-height:1.9;opacity:0.95;">
+    <p><strong>1. 奶源争夺战全面升级。</strong>伊利11.73亿港元增持优然牧业、蒙牛20亿港元收购中国圣牧，两大巨头几乎同步抄底上游优质牧场资产，"得奶源者得天下"的行业铁律在周期底部被重新书写。2026年原奶价格拐点信号已现，行业供需格局正在快速反转。</p>
+    <p style="margin-top:10px;"><strong>2. 蛋白赛道从"配角"变"主角"。</strong>液奶结构性过剩与功能蛋白供不应求形成剪刀差。乳清蛋白价格翻倍、国内乳企集体转向深加工，标志着中国乳业正从"卖原奶"向"卖蛋白原料和解决方案"的战略跃迁。妙可蓝多H1增长28.7%印证了趋势。</p>
+    <p style="margin-top:10px;"><strong>3. 茶饮进入"情绪功能化"深水区。</strong>柠檬奶现象级爆发和GABA适应原茶饮+300%增长，共同指向消费者不再满足于"好喝"，而是追求功能价值和情绪疗愈。乳品甜点化、液态蛋白大众化、奶酪中餐化三大方向值得产品规划者持续关注。</p>
+    <p style="margin-top:10px;"><strong>4. 零售新政利好品牌方。</strong>商务部9部门意见整治线上价格乱象、推动全渠道融合，有望缓解乳品饮料行业的价格战困局。品牌应抓住渠道秩序重建的窗口期，强化全渠道布局和供应链优势。</p>
+  </div>
+</div>
+
+<!-- ===== TAG CLOUD ===== -->
+<div class="section">
+  <div class="section-header"><span class="section-icon">🏷️</span><h2>本周热点标签</h2></div>
+  <div class="tag-cloud">
+    <span class="tag-item">奶源争夺</span><span class="tag-item">原奶拐点</span><span class="tag-item">乳清蛋白</span>
+    <span class="tag-item">柠檬奶</span><span class="tag-item">GABA茶饮</span><span class="tag-item">情绪消费</span>
+    <span class="tag-item">羊奶酪</span><span class="tag-item">零售新政</span><span class="tag-item">奶业大会</span>
+    <span class="tag-item">深加工</span><span class="tag-item">功能蛋白</span><span class="tag-item">标签新规</span>
+    <span class="tag-item">妙可蓝多</span><span class="tag-item">低温鲜奶</span><span class="tag-item">适应原</span>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer-bar">
+  <p>📋 乳制品饮料行业周报 · 第005期 | 覆盖时段：2026年7月10日 — 7月17日</p>
+  <p>🔗 自定义域名：dairy-beverage-weekly.rftlife.com | 部署于 EdgeOne Pages</p>
+  <p style="margin-top:8px;font-size:11px;color:#bdc3c7;">本报告基于公开信息整理，仅供行业研究参考。数据来源包括：第一财经、腾讯新闻、Foodaily、开源证券、华创证券、乳业时报、中国奶业协会、农业农村部等。所有引用均已在文中标注来源链接。</p>
+</div>
+
+</div><!-- wrapper -->
+
+<script>
+function switchTab(evt, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  evt.currentTarget.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
